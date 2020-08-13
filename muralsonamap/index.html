@@ -39,7 +39,8 @@
     });
 
     var m_map;
-    var geojsonURL = 'data/murals.json';
+    var murals_data = 1;
+    var murals_markers = new L.FeatureGroup();
 
     function initmap() {
         // set up the map
@@ -54,11 +55,32 @@
         m_map.attributionControl.setPrefix('');
         m_map.setView(UTRECHT_DOM, 13);
 
-        var geojson = new L.GeoJSON.AJAX(geojsonURL);
-        geojson.on('data:loaded', function() {
-            geojson.addTo(m_map);
-        });
+        load_murals_data();
+    }
 
+    function load_murals_data() {
+        console.log("LOAD MURALS DATA START");
+        var ajax = $.ajax({
+            type : 'GET',
+            url : 'data/murals.json',
+            success : function (response) {
+                //console.log("MURALS DATA RESPONSE OK");
+                //console.log(response);
+                murals_data = response;
+                draw_murals();
+            },
+            error: function(response){
+                console.log("ERROR MURALS LOADING");
+                //console.log(response);
+            }
+        });
+    }
+
+    function draw_murals() {
+        console.log("START DRAW MURALS");
+        murals_markers.clearLayers();
+        L.geoJSON(murals_data).addTo(murals_markers);
+        m_map.addLayer(murals_markers);
     }
 
 </script>
