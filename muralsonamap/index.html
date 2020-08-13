@@ -42,6 +42,19 @@
     var murals_data = 1;
     var murals_markers = new L.FeatureGroup();
 
+    var IconMural = function(latlng) {
+        var bg_color = "#FFFFFF";
+        return L.circleMarker(latlng, {
+            radius: 4,
+            fillColor: bg_color,
+            color: "#000000",
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 0.6
+        })
+    };
+
+
     function initmap() {
         // set up the map
         m_map = new L.Map('mmap', {zoomControl: false});
@@ -81,6 +94,15 @@
         murals_markers.clearLayers();
         L.geoJSON(murals_data).addTo(murals_markers);
         m_map.addLayer(murals_markers);
+
+        //check murals_data
+        var geojson = L.geoJson(murals_data, {
+            onEachFeature: function (feature, layer) {
+                console.log(feature);
+                console.log(feature.properties.name);
+                //layer.bindPopup(feature.properties.name);
+            }
+        });
     }
 
 </script>
