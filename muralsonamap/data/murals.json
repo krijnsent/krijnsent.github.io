@@ -19,7 +19,18 @@
   { "type": "Feature", "properties": { "image": "52104474_5091268.png", "name":"Orgel", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.091268,52.104474] } },
   { "type": "Feature", "properties": { "image": "52096952_5085630.png", "name":"Zoetemelk & Janssen", "artist":"Daniel Roozendaal" }, "geometry": { "type": "Point", "coordinates": [5.08563,52.096952] } },
   { "type": "Feature", "properties": { "image": "52095559_5099498.png", "name":"Lennepdwarsstraat", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.099498,52.095559] } },
-  { "type": "Feature", "properties": { "image": "52107300_5109294.png", "name":"Utrecht", "artist":"verfdokter/janisdeman" }, "geometry": { "type": "Point", "coordinates": [5.109294,52.1073] } }
+  { "type": "Feature", "properties": { "image": "52107300_5109294.png", "name":"Utrecht", "artist":"verfdokter/janisdeman" }, "geometry": { "type": "Point", "coordinates": [5.109294,52.1073] } },
+  { "type": "Feature", "properties": { "image": "52098888_5101133.png", "name":"Trein 1", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.101133,52.098888] } },
+  { "type": "Feature", "properties": { "image": "52098955_5101023.png", "name":"Trein 2", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.101023,52.098955] } },
+  { "type": "Feature", "properties": { "image": "52099167_5100565.png", "name":"Trein 3", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.100565,52.099167] } },
+  { "type": "Feature", "properties": { "image": "52099216_5100457.png", "name":"Trein 4", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.100457,52.099216] } },
+  { "type": "Feature", "properties": { "image": "52096313_5107289.png", "name":"Sully in het gras", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.107289,52.096313] } },
+  { "type": "Feature", "properties": { "image": "52098622_5109771.png", "name":"Otter mural", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.109771,52.098622] } },
+  { "type": "Feature", "properties": { "image": "52094557_5104078.png", "name":"Divers Mural", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.104078,52.094557] } },
+  { "type": "Feature", "properties": { "image": "52091605_5101893.png", "name":"Graffiti Jan is De Man 2007", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.101893,52.091605] } },
+  { "type": "Feature", "properties": { "image": "52091759_5127879.png", "name":"Tour de France - Mondriaan", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.127879,52.091759] } },
+  { "type": "Feature", "properties": { "image": "52080927_5089529.png", "name":"Hockey?", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.089529,52.080927] } },
+  { "type": "Feature", "properties": { "image": "52078713_5114916.png", "name":"Aarab Aziz Poetry", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.114916,52.078713] } }
 ]}
 
 
