@@ -38,7 +38,8 @@
         initmap();
     });
 
-    var mmap = L.map('mmap').setView([52.1, 5.1], 14);
+    var m_map;
+    var geojsonURL = 'data/murals.json';
 
     function initmap() {
         // set up the map
@@ -52,6 +53,9 @@
 
         m_map.attributionControl.setPrefix('');
         m_map.setView(UTRECHT_DOM, 13);
+
+        L.geoJSON(geojsonURL).addTo(m_map);
+
     }
 
 </script>

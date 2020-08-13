@@ -1,0 +1,7 @@
+{ "type": "FeatureCollection", "features": [
+  { "type": "Feature", "properties": { "marker-color": "#0000FF", "marker-size": "medium", "marker-symbol": "camera", "name":"Mirror of Return", "artist":"Mattia Campo Dall’orto" }, "geometry": { "type": "Point", "coordinates": [5.129028,52.075165] } },
+  { "type": "Feature", "properties": { "marker-color": "#0000FF", "marker-size": "medium", "marker-symbol": "camera", "name":"Ornstein onderzoekt de toevalsbeweging", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.123008,52.078954] } }
+]}
+
+
+
