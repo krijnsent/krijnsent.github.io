@@ -30,7 +30,12 @@
   { "type": "Feature", "properties": { "image": "52091605_5101893.png", "name":"Graffiti Jan is De Man 2007", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.101893,52.091605] } },
   { "type": "Feature", "properties": { "image": "52091759_5127879.png", "name":"Tour de France - Mondriaan", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.127879,52.091759] } },
   { "type": "Feature", "properties": { "image": "52080927_5089529.png", "name":"Hockey?", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.089529,52.080927] } },
-  { "type": "Feature", "properties": { "image": "52078713_5114916.png", "name":"Aarab Aziz Poetry", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.114916,52.078713] } }
+  { "type": "Feature", "properties": { "image": "52078713_5114916.png", "name":"Aarab Aziz Poetry", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.114916,52.078713] } },
+  { "type": "Feature", "properties": { "image": "52080681_5115136.png", "name":"Isaac da Costa", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.115136,52.080681] } },
+  { "type": "Feature", "properties": { "image": "52082036_5113552.png", "name":"Constantijn Huygens", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.113552,52.082036] } },
+  { "type": "Feature", "properties": { "image": "52096477_5125190.png", "name":"Muurdicht Molenstraat", "artist":"Ingmar Heytze / ?" }, "geometry": { "type": "Point", "coordinates": [5.12519,52.096477] } },
+  { "type": "Feature", "properties": { "image": "52065991_5119564.png", "name":"Skyline Art Deco Sketch", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.119564,52.065991] } },
+  { "type": "Feature", "properties": { "image": "52071653_5116683.png", "name":"Liesbosbrug Schilderij Amerhof", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.116683,52.071653] } }
 ]}
 
 
