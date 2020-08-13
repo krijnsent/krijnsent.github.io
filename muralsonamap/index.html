@@ -5,29 +5,53 @@
     <title>Murals on a Map</title>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="js/leaflet.css" />
     <script src="js/leaflet.js"></script>
 
     <style>
+
         html, body {
-            height: 100%;
             margin: 0;
+            width: 100%;
+            height: 100%;
         }
-        #map {
-            width: 600px;
-            height: 400px;
+        #mmap {
+            float: left;
+            margin: 0;
+            width: 100%;
+            height: 100%;
         }
+
     </style>
 
 </head>
 <body>
 
-<div id='map'></div>
+<div id='mmap'></div>
 
 <script>
-    var map = L.map('map').setView([52.1, 5.1], 14);
+    $(document).ready(function() {
+        initmap();
+    });
+
+    var mmap = L.map('mmap').setView([52.1, 5.1], 14);
+
+    function initmap() {
+        // set up the map
+        m_map = new L.Map('mmap', {zoomControl: false});
+        var UTRECHT_DOM = [52.0906, 5.1214];
+        //get our map
+        var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib = '&copy; <a href = "https://www.openstreetmap.org/copyright">  OpenStreetMap </a> contributors';
+        var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 19, attribution: osmAttrib});
+        m_map.addLayer(osm);
+
+        m_map.attributionControl.setPrefix('');
+        m_map.setView(UTRECHT_DOM, 13);
+    }
+
 </script>
 
 </body>
