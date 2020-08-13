@@ -3,8 +3,17 @@
   { "type": "Feature", "properties": { "image": "52078953_5123007.png", "name":"Ornstein onderzoekt de toevalsbeweging", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.123008,52.078954] } },
   { "type": "Feature", "properties": { "image": "52072379_5118275.png", "name":"Mural Vaartsche Rijn", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.118275,52.072379] } },
   { "type": "Feature", "properties": { "image": "52069653_5115100.png", "name":"Mural Onder de zee", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.1151,52.069653] } },
-  { "type": "Feature", "properties": { "image": "52073059_5087829.png", "name":"Mural Bernadottelaan", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.087829,52.073059] } },
-  { "type": "Feature", "properties": { "image": "52073243_5088167.png", "name":"Mural Marshall Yin Yang ", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.088167,52.073243] } }
+  { "type": "Feature", "properties": { "image": "52073059_5087829.png", "name":"Mural Bernadottelaan", "artist":"ikwilgrafitti.nl" }, "geometry": { "type": "Point", "coordinates": [5.087829,52.073059] } },
+  { "type": "Feature", "properties": { "image": "52073243_5088167.png", "name":"Mural Marshall Yin Yang ", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.088167,52.073243] } },
+  { "type": "Feature", "properties": { "image": "52092082_5106030.png", "name":"Slapende Mars", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.10603,52.092082] } },
+  { "type": "Feature", "properties": { "image": "52079491_5087080.png", "name":"De Luitspeler", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.08708,52.079491] } },
+  { "type": "Feature", "properties": { "image": "52111515_5114576.png", "name":"Fluitspeler", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.114576,52.111515] } },
+  { "type": "Feature", "properties": { "image": "52090342_5133392.png", "name":"Buys Ballot en het Dopplereffect", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.133393,52.090342] } },
+  { "type": "Feature", "properties": { "image": "52095183_5124671.png", "name":"Sleutelkoning", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.124671,52.095183] } },
+  { "type": "Feature", "properties": { "image": "52080442_5124688.png", "name":"Gansstraat", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.124689,52.080442] } },
+  { "type": "Feature", "properties": { "image": "52096320_5117394.png", "name":"Pyke Koch", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.117394,52.09632] } },
+  { "type": "Feature", "properties": { "image": "52082195_5088351.png", "name":"Ibis", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.088351,52.082195] } },
+  { "type": "Feature", "properties": { "image": "52085148_5143942.png", "name":"Saenredam", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.143943,52.085149] } }
 ]}
 
 
