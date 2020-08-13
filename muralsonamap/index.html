@@ -107,7 +107,8 @@
                 popup_txt +=  '<img src="img/' + feature.properties.image + '" alt="Foto"/>';
 
                 //var mural_icon = IconMural(mural_pos).bindPopup(popup_txt);
-                layer.bindPopup(popup_txt);
+                layer.bindPopup(popup_txt, {minWidth : 300});
+
                 //murals_markers.addLayer(mural_icon);
                 //console.log("add");
                 //murals_markers.addLayer(L.marker([feature.geometry.coordinates[0],feature.geometry.coordinates[1]]));

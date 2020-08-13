@@ -13,7 +13,13 @@
   { "type": "Feature", "properties": { "image": "52080442_5124688.png", "name":"Gansstraat", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.124689,52.080442] } },
   { "type": "Feature", "properties": { "image": "52096320_5117394.png", "name":"Pyke Koch", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.117394,52.09632] } },
   { "type": "Feature", "properties": { "image": "52082195_5088351.png", "name":"Ibis", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.088351,52.082195] } },
-  { "type": "Feature", "properties": { "image": "52085148_5143942.png", "name":"Saenredam", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.143943,52.085149] } }
+  { "type": "Feature", "properties": { "image": "52085148_5143942.png", "name":"Saenredam", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.143943,52.085149] } },
+  { "type": "Feature", "properties": { "image": "52084592_5108571.png", "name":"Wijkbeeld", "artist":"Munir de Vries" }, "geometry": { "type": "Point", "coordinates": [5.108571,52.084592] } },
+  { "type": "Feature", "properties": { "image": "52116471_5110895.png", "name":"Ode Aan 100 Jaar De Stijl", "artist":"Johan Moorman" }, "geometry": { "type": "Point", "coordinates": [5.110895,52.116471] } },
+  { "type": "Feature", "properties": { "image": "52104474_5091268.png", "name":"Orgel", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.091268,52.104474] } },
+  { "type": "Feature", "properties": { "image": "52096952_5085630.png", "name":"Zoetemelk & Janssen", "artist":"Daniel Roozendaal" }, "geometry": { "type": "Point", "coordinates": [5.08563,52.096952] } },
+  { "type": "Feature", "properties": { "image": "52095559_5099498.png", "name":"Lennepdwarsstraat", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.099498,52.095559] } },
+  { "type": "Feature", "properties": { "image": "52107300_5109294.png", "name":"Utrecht", "artist":"verfdokter/janisdeman" }, "geometry": { "type": "Point", "coordinates": [5.109294,52.1073] } }
 ]}
 
 
