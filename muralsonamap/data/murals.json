@@ -1,6 +1,10 @@
 { "type": "FeatureCollection", "features": [
-  { "type": "Feature", "properties": { "marker-color": "#0000FF", "marker-size": "medium", "marker-symbol": "camera", "name":"Mirror of Return", "artist":"Mattia Campo Dall'orto" }, "geometry": { "type": "Point", "coordinates": [5.129028,52.075165] } },
-  { "type": "Feature", "properties": { "marker-color": "#0000FF", "marker-size": "medium", "marker-symbol": "camera", "name":"Ornstein onderzoekt de toevalsbeweging", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.123008,52.078954] } }
+  { "type": "Feature", "properties": { "image": "52075165_5129028.png", "name":"Mirror of Return", "artist":"Mattia Campo Dall’orto" }, "geometry": { "type": "Point", "coordinates": [5.129028,52.075165] } },
+  { "type": "Feature", "properties": { "image": "52078953_5123007.png", "name":"Ornstein onderzoekt de toevalsbeweging", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.123008,52.078954] } },
+  { "type": "Feature", "properties": { "image": "52072379_5118275.png", "name":"Mural Vaartsche Rijn", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.118275,52.072379] } },
+  { "type": "Feature", "properties": { "image": "52069653_5115100.png", "name":"Mural Onder de zee", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.1151,52.069653] } },
+  { "type": "Feature", "properties": { "image": "52073059_5087829.png", "name":"Mural Bernadottelaan", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.087829,52.073059] } },
+  { "type": "Feature", "properties": { "image": "52073243_5088167.png", "name":"Mural Marshall Yin Yang ", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.088167,52.073243] } }
 ]}
 
 

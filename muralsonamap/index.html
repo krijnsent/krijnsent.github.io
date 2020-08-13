@@ -104,6 +104,8 @@
                 //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
                 var popup_txt = 'Titel: ' + feature.properties.name + '<br/>' ;
                 popup_txt +=  'Artiest: ' + feature.properties.artist + '<br/>';
+                popup_txt +=  '<img src="img/' + feature.properties.image + '" alt="Foto"/>';
+
                 //var mural_icon = IconMural(mural_pos).bindPopup(popup_txt);
                 layer.bindPopup(popup_txt);
                 //murals_markers.addLayer(mural_icon);
