@@ -54,7 +54,10 @@
         m_map.attributionControl.setPrefix('');
         m_map.setView(UTRECHT_DOM, 13);
 
-        L.geoJSON(geojsonURL).addTo(m_map);
+        var geojson = new L.GeoJSON.AJAX(geojsonURL);
+        geojson.on('data:loaded', function() {
+            geojson.addTo(m_map);
+        });
 
     }
 
