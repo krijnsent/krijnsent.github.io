@@ -42,10 +42,10 @@
     var murals_data = 1;
     var murals_markers = new L.FeatureGroup();
 
-    var IconMural = function(latlng) {
+    var IconMural = function(latlng, properties) {
         var bg_color = "#FFFFFF";
         return L.circleMarker(latlng, {
-            radius: 4,
+            radius: 8,
             fillColor: bg_color,
             color: "#000000",
             weight: 3,
@@ -92,17 +92,31 @@
     function draw_murals() {
         console.log("START DRAW MURALS");
         murals_markers.clearLayers();
-        L.geoJSON(murals_data).addTo(murals_markers);
-        m_map.addLayer(murals_markers);
+        //L.geoJSON(murals_data).addTo(murals_markers);
 
-        //check murals_data
+        //loop through murals_data
         var geojson = L.geoJson(murals_data, {
+            pointToLayer: function(feature, latlng) {
+                return new IconMural(latlng, feature.properties);
+            },
             onEachFeature: function (feature, layer) {
                 console.log(feature);
-                console.log(feature.properties.name);
+                //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
+                var popup_txt = 'Titel: ' + feature.properties.name + '<br/>' ;
+                popup_txt +=  'Artiest: ' + feature.properties.artist + '<br/>';
+                //var mural_icon = IconMural(mural_pos).bindPopup(popup_txt);
+                layer.bindPopup(popup_txt);
+                //murals_markers.addLayer(mural_icon);
+                //console.log("add");
+                //murals_markers.addLayer(L.marker([feature.geometry.coordinates[0],feature.geometry.coordinates[1]]));
+                //console.log("2");
                 //layer.bindPopup(feature.properties.name);
             }
         });
+
+        geojson.addTo(m_map);
+        //console.log(murals_markers);
+        //m_map.addLayer(murals_markers);
     }
 
 </script>
