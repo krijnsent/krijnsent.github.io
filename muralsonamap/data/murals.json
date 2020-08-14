@@ -34,9 +34,16 @@
   { "type": "Feature", "properties": { "image": "52080681_5115136.png", "name":"Isaac da Costa", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.115136,52.080681] } },
   { "type": "Feature", "properties": { "image": "52082036_5113552.png", "name":"Constantijn Huygens", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.113552,52.082036] } },
   { "type": "Feature", "properties": { "image": "52096477_5125190.png", "name":"Muurdicht Molenstraat", "artist":"Ingmar Heytze / ?" }, "geometry": { "type": "Point", "coordinates": [5.12519,52.096477] } },
-  { "type": "Feature", "properties": { "image": "52065991_5119564.png", "name":"Skyline Art Deco Sketch", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.119564,52.065991] } },
-  { "type": "Feature", "properties": { "image": "52071653_5116683.png", "name":"Liesbosbrug Schilderij Amerhof", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.116683,52.071653] } }
+  { "type": "Feature", "properties": { "image": "52065991_5119564.png", "name":"Skyline Art Deco Sketch", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.119564,52.065991] } },
+  { "type": "Feature", "properties": { "image": "52071653_5116683.png", "name":"Liesbosbrug Schilderij Amerhof", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.116683,52.071653] } },
+  { "type": "Feature", "properties": { "image": "52101272_5099449.png", "name":"Boekenkast", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.099449,52.101272] } },
+  { "type": "Feature", "properties": { "image": "52096471_5107596.png", "name":"Welkom op de Amsterdamse straatweg", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.107596,52.096471] } },
+  { "type": "Feature", "properties": { "image": "52083288_5144792.png", "name":"Gerard Dou", "artist":"De strakke hand" }, "geometry": { "type": "Point", "coordinates": [5.144792,52.083288] } },
+  { "type": "Feature", "properties": { "image": "52097711_5111483.png", "name":"Utrecht (voormalig: Wil je met me trouwen?)", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.111483,52.097711] } },
+  { "type": "Feature", "properties": { "image": "52079762_5126674.png", "name":"KBTR op gans", "artist":"KBTR" }, "geometry": { "type": "Point", "coordinates": [5.126674,52.079762] } },
+  { "type": "Feature", "properties": { "image": "52091329_5105449.png", "name":"Treinwagon & Nijntje", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.105449,52.091329] } },
+  { "type": "Feature", "properties": { "image": "52095033_5107979.png", "name":"Mural Daalsedijk", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.107979,52.095033] } },
+  { "type": "Feature", "properties": { "image": "52101226_5112469.png", "name":"Reuzevogel", "artist":"Jan is de Man" }, "geometry": { "type": "Point", "coordinates": [5.112469,52.101226] } },
+  { "type": "Feature", "properties": { "image": "52097188_5127262.png", "name":"Gedicht", "artist":"?" }, "geometry": { "type": "Point", "coordinates": [5.127262,52.097188] } },
+  { "type": "Feature", "properties": { "image": "52088953_5120111.png", "name":"Mural Strosteeg", "artist":"Verfdokter" }, "geometry": { "type": "Point", "coordinates": [5.120111,52.088953] } }
 ]}
-
-
-
