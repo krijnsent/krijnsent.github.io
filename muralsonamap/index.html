@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 <head>
 
     <title>Murals on a Map</title>
@@ -7,10 +7,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <script src="js/jquery-3.5.1.min.js"></script>
+    <link href="css/all.min.css" rel="stylesheet"> <!--load all fontawesome styles -->
+    <link href="css/leaflet.css" rel="stylesheet" />
+    <link href="css/leaflet-sidebar.css" rel="stylesheet"> <!--load custom styles -->
+    <link href="css/murals.css" rel="stylesheet"> <!--load custom styles -->
 
-    <link rel="stylesheet" href="js/leaflet.css" />
+    <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-sidebar.min.js"></script>
 
     <style>
 
@@ -30,6 +34,51 @@
 
 </head>
 <body>
+
+<div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+            <li><a href="#filter" role="tab"><i class="fa fa-filter"></i></a></li>
+            <li><a href="#about" role="tab"><i class="fa fa-question-circle"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+        <div class="sidebar-pane" id="home">
+            <h1 class="sidebar-header">
+                Murals on a map
+                <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <p>A hobby project to map out murals in Utrecht, NL. The images I use are of poor quality, I scale them to max 300px.
+                That is on purpose: the best way to enjoy these murals is to be in front of them.
+                So enjoy this site as your guide for a nice bike ride :).</p>
+        </div>
+
+        <div class="sidebar-pane" id="filter">
+            <h1 class="sidebar-header">Highlight<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <p>Highlight murals by artist or by title</p>
+            Work in progress...
+        </div>
+
+        <div class="sidebar-pane" id="about">
+            <h1 class="sidebar-header">About<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            Please leave feedback/suggestions at <a href="https://www.reddit.com/r/Utrecht/comments/i9i7hc/murals_in_utrecht/" target="_blank">my Reddit post</a>
+            or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.
+            <h2>Sources</h2>
+            <ul>
+                <li>Years of cycling through the city</li>
+                <li>Ingress</li>
+                <li><a href="https://hetutrechtsarchief.nl/beeldmateriaal/" target="_blank">Utrechts Archief</a></li>
+                <li>DuckDuckGo & Startpage.com</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
 
 <div id='mmap'></div>
 
@@ -69,6 +118,8 @@
         m_map.setView(UTRECHT_DOM, 13);
 
         load_murals_data();
+
+        var sidebar = L.control.sidebar('sidebar').addTo(m_map);
     }
 
     function load_murals_data() {
@@ -100,7 +151,7 @@
                 return new IconMural(latlng, feature.properties);
             },
             onEachFeature: function (feature, layer) {
-                console.log(feature);
+                //console.log(feature);
                 //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
                 var popup_txt = '<b>Titel</b>: ' + feature.properties.name + '<br/>' ;
                 popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist + '<br/>';
