@@ -60,7 +60,7 @@
             <h4>Highlight murals by artist or by title</h4>
             <form class="form-horizontal">
                 <div class="input-group">
-                    <input type="text" id="highlight_filter" class="form-control" placeholder="Highlight with text" oninput="update_highlight();" aria-label="Highlight with text" aria-describedby="basic-addon2" value='<?php echo htmlspecialchars($_GET["q"]); ?>' >
+                    <input type="text" id="highlight_filter" class="form-control" placeholder="Highlight with text" oninput="update_highlight();" aria-label="Highlight with text" aria-describedby="basic-addon2" value="" >
                     <div class="input-group-append">
                         <button class="btn btn-outline-danger" type="button" onclick="clear_highlight_filter();" >X</button>
                     </div>
@@ -90,6 +90,7 @@
 <div id='mmap'></div>
 
 <script>
+
     $(document).ready(function() {
         initmap();
     });
@@ -142,6 +143,10 @@
         m_map.attributionControl.setPrefix('');
         m_map.setView(UTRECHT_DOM, 13);
 
+        let params = new URLSearchParams(location.search);
+        n1 = params.get('q');
+        sett_filter.value = n1;
+        
         murals_layer_group.addTo(m_map);
         load_murals_data();
 
@@ -199,7 +204,6 @@
         sett_filter.value = "";
         redraw_murals();
     }
-
 
 </script>
 
