@@ -56,7 +56,7 @@
             <p>A hobby project to map out murals in Utrecht, NL.</p>
             <p>Please leave feedback/suggestions at <a href="https://www.reddit.com/r/Utrecht/comments/i9i7hc/murals_in_utrecht/" target="_blank">my Reddit post</a>
                 or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.</p>
-
+            <p>Try e.g. <a href="?q=verfdokter">/?q=verfdokter</a> for all works from Verfdokter.</p>
             <h4>Highlight murals by artist or by title</h4>
             <form class="form-horizontal">
                 <div class="input-group">
@@ -191,6 +191,7 @@
                 //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
                 var popup_txt = '<b>Titel</b>: ' + feature.properties.name + '<br/>' ;
                 popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist + '<br/>';
+                popup_txt +=  '<b>Info</b>: ' + feature.properties.info + '<br/>';
                 popup_txt +=  '<img src="img/' + feature.properties.image + '" alt="Foto"/>';
                 layer.bindPopup(popup_txt, {minWidth : 300});
             }
