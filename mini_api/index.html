@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+
+    <title>Mini API</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+
+    <style>
+
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id='response_location'></div>
+
+<script>
+
+    // $(document).ready(function() {
+    //     initmap();
+    // });
+    var product_data;
+    var response_location = document.getElementById("response_location");
+
+    $(document).ready(function() {
+        console.log("DOCUMENT START");
+        var ajax = $.ajax({
+            type : 'GET',
+            url : "sample_data.csv",
+            //expecting in the data columns: item,name,price,qty,location
+            success : function (response) {
+                console.log("DATA 01");
+                processData(response);
+            },
+            error: function(response){
+                console.log("ERROR LOADING");
+                //console.log(response);
+            }
+        });
+
+
+    });
+
+    function processData(allText) {
+        console.log("PROCESS 01");
+        let params = new URLSearchParams(location.search);
+        it_q = params.get('item');
+        loc_q = params.get('location');
+
+        console.log("it_q:", it_q);
+        console.log("loc_q:", loc_q);
+
+        var rows = allText.split(/\r\n|\n/);
+        var build = '<table>\n';
+        var rw = 0;
+        rows.forEach( function getvalues(thisRow) {
+            var columns = thisRow.split(",");
+            rw_item = "tr";
+            if(rw>0){
+                add_row = (!it_q || columns[0] === it_q) && (!loc_q || columns[4] === loc_q);
+            } else {
+                add_row = true;
+                rw_item = "th";
+            }
+            if (add_row) {
+                build += "<" + rw_item + ">\n";
+                for(var i=0;i<columns.length;i++){
+                    build += "<td>" + columns[i] + "</td>\n";
+                }
+                build += "</" + rw_item + ">\n";
+            }
+            rw++;
+        })
+        build += "</table>";
+        response_location.innerHTML = build;
+        console.log("PROCESS 03");
+        // alert(lines);
+    }
+
+
+</script>
+
+</body>
+</html>
