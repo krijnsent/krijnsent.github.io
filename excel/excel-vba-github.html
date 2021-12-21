@@ -1,0 +1,49 @@
+<a href="https://krijnsent.github.io/">Back to index</a>
+<div>
+    <br/>
+    <p>PUBLISHED before on: https://steemit.com/vba/@beeheap/excel-and-vba-development-with-github</p>
+    <br/>
+
+    <h1>A 5 step how-to for VBA/Excel developers who want to share their code and want to have structure in their excel-tool development.</h1>
+    <h1><img src="img/excel-vba-logo.png" alt="Excel VBA to Github"></h1>
+    <p>What I have set up for my project:</p>
+    <ol>
+        <li>setup a <strong>basic excel</strong> to work on&nbsp;</li>
+        <li>and an <strong>online place </strong>to store the project</li>
+        <li>start coding and be able to <strong>test </strong>the code</li>
+        <li>have a macro to <strong>export</strong> all relevant VBA code</li>
+        <li>get the new code in a <strong>Github repository </strong>online</li>
+    </ol>
+    <h3><strong>1. Basic Excel setup</strong></h3>
+    <p>I've been building quite a lot of excel tools in my life. Normally I save the excel file I am working on several times during development, using <strong>Save As</strong>. I use names like: <em>CryptoTool_20171118a.xlsm</em>, <em>CryptoTool_20171118b.xlsm</em>, etc. Some years ago I've worked on a start-up and discovered version control. So when I recently decided to build a VBA project to connect Excel to various bitcoin/cryptocurrency exchanges, I decided to go for a more professional approach: including version control and testing in my development process.</p>
+    <p>One side note: version control only works well for VBA code, not so much for logging changes in sheets, charts etc. Anyhow, since my project is mainly about code, I decided to give version control a try. I do save my master file ocasionally with the naming convention above.</p>
+    <h3>2. Store the project online</h3>
+    <p>So, version control... According to Wikipedia: Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.</p>
+    <p>So Git basically 1) helps me tracking changes in your code and 2) gives me the ability to go back to earlier versions of that code. So I got myself <a href="https://github.com/krijnsent/" rel="nofollow noopener" title="This link will take you away from steemit.com">an account at GitHub</a>, and created a new project called <a href="https://github.com/krijnsent/crypto_vba/" rel="nofollow noopener" title="This link will take you away from steemit.com">crypto_vba</a>. Step one was to create a readme.md file and make a small description of the project.</p>
+    <p>What I found hard about github is that git is basically command-line based. Although I grew up with MS DOS on the command line, I fancy a graphical interface. Luckily github has a desktop version: <a href="https://desktop.github.com/" rel="nofollow noopener" title="This link will take you away from steemit.com">https://desktop.github.com/</a> . After downloading and installing that it's pretty easy to connect it to my online project and to add a local directory where I will be storing the files I want to have online.</p>
+    <h3>3. Code testing</h3>
+    <p>After version control, a second building block for profesional development is <strong>testing</strong>. An extensive variety of this is Test driven development. That means: first write the test for a function, after which you can start building the function. I don't go that far for this project, but do include a test Sub at the top of every module.</p>
+    <p>I found a complication while building this, as I need to test my code with some <em>private settings</em>. In my case that's the exchange API keys. I don't want those to end up in my Github repository online. So what I do:</p>
+    <ul>
+        <li>Create a module that won't be exported to my Github project</li>
+        <li>In that module, create a public Constant:</li>
+    </ul>
+    <pre><code>Public Const apikey_btce = "MP3YF9J3"</code></pre>
+    <p>And in the modules for the people who want to use it:</p>
+    <pre><code>apikey = "your api key here"<br>
+'Remove this line, unless you define 2 constants somewhere ( Public Const apikey_btce = "the key to use everywhere" etc )<br>
+apikey = apikey_btce</code></pre>
+    <p>In this way, tests pass and as long as you don't export your secret module, nobody will have the private settings.</p>
+    <h3>4. Export VBA code and import it into a test file</h3>
+    <p>So now you have a setup where you can work in the master file, test the code and want to export that code. For this I found various snippets online, the version I use is here: <a href="https://pastebin.com/Lhb6yupj" rel="nofollow noopener" title="This link will take you away from steemit.com">https://pastebin.com/Lhb6yupj</a>. What this macro does:</p>
+    <ul>
+        <li>export all VBA modules that are listed and save them as .bas files in a specified directory</li>
+        <li>import those .bas files into the example file in that same directory</li>
+    </ul>
+    <h3>5. Push the updated files online</h3>
+    <p>So from the master you can export code, but still need to &nbsp;put it online. At that point, the <a href="https://desktop.github.com" rel="nofollow noopener" title="This link will take you away from steemit.com">Github desktop</a> comes in. What the program does is basically show you the differences in the .bas files between the last version and the current version. Note: the program is looking at the exported files, not at the code inside your Excel file. After adding a short description of the update, it's simply pushing the "Commit to master" button and after that at the top "push".&nbsp;</p>
+    <p><img src="img/excel-vba-desktop.png" alt="Github Desktop"></p>
+    <p><br></p>
+    <p>So that's how it works for me, hope that this how-to inspires you to share your code. Feedback is welcome in the comments. If you want to go a step further, like importing &amp; exporting VBA code, do check out this project:&nbsp;<a href="http://ramblings.mcpher.com/Home/excelquirks/vbagit/gettingstarted" rel="nofollow noopener" title="This link will take you away from steemit.com">http://ramblings.mcpher.com/Home/excelquirks/vbagit/gettingstarted</a></p>
+    <p><br></p>
+</div>
