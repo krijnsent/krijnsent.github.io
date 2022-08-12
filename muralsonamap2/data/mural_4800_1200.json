@@ -1,0 +1,158 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.58.5 b0c4acbb",
+  "osm3s": {
+    "timestamp_osm_base": "2022-08-12T09:34:46Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 3310498401,
+  "lat": 49.4596014,
+  "lon": 13.1650353,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6733236771,
+  "lat": 48.2635435,
+  "lon": 13.0359627,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6908822517,
+  "lat": 49.2959459,
+  "lon": 12.8806241,
+  "tags": {
+    "artist_name": "Volker Linn",
+    "artwork_type": "mural",
+    "mural:type": "graffiti",
+    "name": "Dragon meets Trafo",
+    "project": "Kunst am Trafo",
+    "source": "https://www.bayernwerk.de/de/ueber-uns/engagement/kultur-und-tradition/kunstprojekte/kunst-am-trafo.html",
+    "start_date": "2010",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6996136114,
+  "lat": 49.6231295,
+  "lon": 12.0959926,
+  "tags": {
+    "artist_name": "ART-EFX",
+    "artwork_type": "mural",
+    "project": "Kunst am Trafo",
+    "source": "http://www.mynewsdesk.com/de/bayernwerk/pressreleases/buntes-treiben-in-etzenricht-bayernwerk-schafft-neuen-blickfang-2896256",
+    "start_date": "2019-07-10",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6996430588,
+  "lat": 48.4116344,
+  "lon": 12.7465698,
+  "tags": {
+    "artist": "Art-EFX",
+    "artwork_type": "mural",
+    "description": "Stadttore mit Blick auf Eggenfeld, Carcassonne (Partnerstadt in Frankreich) und Balatonalmádi (Partnerstadt in Ungarn).",
+    "project": "Kunst am Trafo",
+    "source": "http://www.mynewsdesk.com/de/bayernwerk/pressreleases/eggenfelder-lebensqualitaet-und-weltoffenheit-kuenstlerisch-umgesetzt-2573993",
+    "start_date": "2018-07",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7008467856,
+  "lat": 49.2147950,
+  "lon": 12.5669298,
+  "tags": {
+    "artist_name": "Volker Linn",
+    "artwork_type": "mural",
+    "motive": "Regenbogen",
+    "mural:type": "graffiti",
+    "project": "Kunst am Trafo",
+    "source": "https://www.mittelbayerische.de/junge-leser/junior/regional/buntes-trafohaeuschen-21989-art603057.html",
+    "start_date": "2010-11",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7598603533,
+  "lat": 49.0698499,
+  "lon": 13.0967854,
+  "tags": {
+    "artist_name": "Art-EFX",
+    "artwork_type": "mural",
+    "name": "4 Jahreszeiten",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8247146082,
+  "lat": 49.0275286,
+  "lon": 12.7513136,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9935693344,
+  "lat": 48.7648199,
+  "lon": 13.0239902,
+  "tags": {
+    "artwork_type": "mural",
+    "image": "https://i.imgur.com/TM3m9bN.jpg",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 445938958,
+  "bounds": {
+    "minlat": 49.2893264,
+    "minlon": 12.9386531,
+    "maxlat": 49.2894868,
+    "maxlon": 12.9388593
+  },
+  "nodes": [
+    4432844762,
+    4432844525,
+    4432844530,
+    1302759680,
+    4432844528,
+    4432844762
+  ],
+  "geometry": [
+    { "lat": 49.2893264, "lon": 12.9388175 },
+    { "lat": 49.2893474, "lon": 12.9388593 },
+    { "lat": 49.2894868, "lon": 12.9386949 },
+    { "lat": 49.2894761, "lon": 12.9386737 },
+    { "lat": 49.2894658, "lon": 12.9386531 },
+    { "lat": 49.2893264, "lon": 12.9388175 }
+  ],
+  "tags": {
+    "artwork_type": "mural",
+    "building": "public_building",
+    "name": "Ida Aschenbrenner Pavillon",
+    "tourism": "artwork"
+  }
+}
+
+  ]
+}

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+
+    <title>Murals on a Map v2</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"> <!--load all fontawesome styles -->
+    <link href="css/all.min.css" rel="stylesheet"> <!--load all fontawesome styles -->
+    <link href="css/leaflet.css" rel="stylesheet" />
+    <link href="css/leaflet-sidebar.css" rel="stylesheet"> <!--load custom styles -->
+    <link href="css/murals.css" rel="stylesheet"> <!--load custom styles -->
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-sidebar.min.js"></script>
+
+    <style>
+
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #mmap {
+            float: left;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+        <ul role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+            <li><a href="#about" role="tab"><i class="fa fa-question-circle"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+        <div class="sidebar-pane" id="home">
+            <h1 class="sidebar-header">
+                Murals on a map v2 BETA
+                <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+            </h1>
+            <p>A hobby project to map out murals in NL/BE and surroundings.</p>
+            <p>Please leave feedback/suggestions at <a href="https://www.reddit.com/user/krijnsent" target="_blank">my Reddit</a>
+            or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.</p>
+            <p>If you want to contribute: get an OSM account and use e.g.<a href="https://mapcomplete.osm.be/artwork.html">MapComplete</a>.</p>
+            <p>Try e.g. <a href="?q=verfdokter">/?q=verfdokter</a> for all works from Verfdokter.</p>
+            <h4>Highlight murals by artist or by title</h4>
+            <form class="form-horizontal">
+                <div class="input-group">
+                    <input type="text" id="highlight_filter" class="form-control" placeholder="Highlight with text" oninput="update_highlight();" aria-label="Highlight with text" aria-describedby="basic-addon2" value="" >
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-danger" type="button" onclick="clear_highlight_filter();" >X</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="sidebar-pane" id="about">
+            <h1 class="sidebar-header">About<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+			<p>For this second version of my murals map (find <a href="https://krijnsent.github.io/muralsonamap/">v1 here</a>) I've used OSM as a basis.
+            If you want to contribute: get an OSM account and use <a href="https://mapcomplete.osm.be/artwork.html">MapComplete</a>. </p>
+
+            <h2>HowTo</h2>
+            <p>The data can be pulled with <a href="https://overpass-turbo.eu/">Overpass Turbo</a>, for my purpose I've used this query:
+            <a href="https://overpass-turbo.eu/s/1kXz">[out:json];(nwr[tourism=artwork][artwork_type=mural](52.0,5.0,52.5,5.5););out geom;</a>
+            An issue is not to overload that end point, so I wanted some "caching".<br/>
+            For that purpose I use Google Sheets for scraping the data.
+            Advantages: it's easy to code & schedule e.g. weekly updates of the results.
+            You can find the
+            <a href="https://github.com/krijnsent/krijnsent.github.io/tree/master/muralsonamap2">script code here</a>.<br/>
+            And the results/json/spreadsheet
+            <a href="https://drive.google.com/drive/folders/1zm0hrVckWv9AuwdJXe-M8acLA3ME7sXQ?usp=sharing">are here</a>.<br/></p>
+            <h2>Feedback?</h2>
+            Please leave feedback/suggestions at <a href="https://www.reddit.com/user/krijnsent" target="_blank">my Reddit</a>
+            or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.
+            <h2>See also</h2>
+            <ul>
+                <li><a href="https://utrecht.streetartcities.com/" target="_blank">https://utrecht.streetartcities.com/</a></li>
+                <li><a href="https://www.google.com/maps/d/viewer?mid=1OOZhpM639wrfhkXp-oLPu0HUodRnTVrU" target="_blank">https://www.google.com/maps/d/viewer?mid=1OOZhpM639wrfhkXp-oLPu0HUodRnTVrU</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+<div id='mmap'></div>
+
+<script>
+
+    $(document).ready(function() {
+        initmap();
+    });
+
+    var m_map;
+    var murals_geojson = { "type": "FeatureCollection", "features": []};
+    var files_loaded = [];
+    //var murals_markers = new L.FeatureGroup();
+    var murals_layer_group = new L.LayerGroup();
+    var sett_filter = document.getElementById("highlight_filter");
+
+    var myArray = ['c', 'b', 'c', 2, 'b'];
+    var uniqueArray = myArray.filter((val, ind, arr) => arr.indexOf(val) === ind);
+    var obj = JSON.parse('{"firstName":"John", "lastName":"Doe"}');
+
+    var IconMural = function(latlng, properties) {
+        console.log(latlng);
+        var bg_color = "#FFFFFF";
+        var w = 2;
+        var filter_by = sett_filter.value.toLowerCase();
+
+        if (filter_by === "") {
+            //no different settings
+        } else {
+            //console.log("FILTER");
+            var nn = properties.name.toLowerCase().indexOf(filter_by);
+            var na = properties.artist_name.toLowerCase().indexOf(filter_by);
+            if (nn >= 0 || na >= 0) {
+                w = 4;
+                bg_color = "#FFFF00";
+            } else {
+                // no different settings
+            }
+        }
+        return L.circleMarker(latlng, {
+            radius: 8,
+            fillColor: bg_color,
+            weight: w,
+            color: "#000000",
+            opacity: 1,
+            fillOpacity: 0.6
+        })
+    };
+
+    var IconMural2 = function(latlng, properties) {
+        var b_color = "#000000";
+        var filter_by = sett_filter.value.toLowerCase();
+        var im = properties.image;
+        //im = 'img/dummy_mural.jpg';
+        if (im === "") {
+            im = 'img/dummy_mural.jpg';
+        }
+        if (filter_by === "") {
+            //no different settings
+        } else {
+            console.log("FILTER");
+            var nn = properties.title.toLowerCase().indexOf(filter_by);
+            var na = properties.artist_name.toLowerCase().indexOf(filter_by);
+            if (nn >= 0 || na >= 0) {
+                b_color = "#FF0000";
+            } else {
+                // no different settings
+            }
+        }
+
+        var myIcon2 = L.divIcon({
+            className: 'custom-div-icon',
+            //html: '<div style="max-width: 50px;max-height: 50px;"><img src="img/'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
+            html: '<div style="max-width: 50px;max-height: 50px;"><img src="'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
+            iconSize: [60, 60],
+            iconAnchor: [20, 30]
+        });
+        return L.marker(latlng, {
+            icon: myIcon2
+        })
+    };
+
+    function initmap() {
+        // set up the map
+        m_map = new L.Map('mmap', {zoomControl: true});
+        var UTRECHT_DOM = [52.0906, 5.1214];
+        //get our map
+        var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib = '&copy; <a href = "https://www.openstreetmap.org/copyright"> OpenStreetMap </a> contributors <br/>Edit with: <a href="https://mapcomplete.osm.be/artwork.html">MapComplete</a>';
+        var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 19, attribution: osmAttrib});
+        m_map.addLayer(osm);
+
+        m_map.attributionControl.setPrefix('');
+        m_map.setView(UTRECHT_DOM, 13);
+
+        let params = new URLSearchParams(location.search);
+        n1 = params.get('q');
+        sett_filter.value = n1;
+        
+        murals_layer_group.addTo(m_map);
+
+        m_map.on('zoomend', function() {
+            // stuff here when user zooms the map...
+            load_murals_data();
+        });
+        m_map.on('dragend', function() {
+            // stuff here when user drags the map...
+            load_murals_data();
+        });
+
+        load_murals_data();
+        var sidebar = L.control.sidebar('sidebar').addTo(m_map);
+    }
+
+
+
+
+    function load_murals_data() {
+        console.log("LOAD MURALS DATA START");
+
+        //console.log(m_map);
+        //console.log(m_map.getZoom());
+        //console.log(m_map.getBounds());
+
+        if (m_map.getZoom() >= 10){
+            //console.log("ZOOM OK");
+            //console.log(m_map.getBounds());
+            var cn = m_map.getBounds()._northEast.lat;
+            var cn2 = Math.floor(cn / 2) * 2;
+            var ce = m_map.getBounds()._northEast.lng;
+            var ce2 = Math.floor(ce / 2) * 2;
+            var cs = m_map.getBounds()._southWest.lat;
+            var cs2 = Math.floor(cs / 2) * 2;
+            var cw = m_map.getBounds()._southWest.lng;
+            var cw2 = Math.floor(cw / 2) * 2;
+            console.log("ZOOM:"+cn+"_"+ce+"_"+cs+"_"+cw);
+            if (cn2 >= cs2 && ce2 >= cw2) {
+                for(let lati = cs2; lati <= cn2; lati += 2) {
+                    for(let lngi = ce2; lngi <= cw2; lngi += 2) {
+                        var file_nm = "mural_" + lati * 100 + "_" + lngi * 100 + ".json";
+                        //console.log(file_nm);
+                        add_otquery_to_geojson_data(file_nm);
+                    }
+                }
+            }
+        }
+    }
+
+    function add_otquery_to_geojson_data(filename_in){
+        //not loaded yet?
+        if (files_loaded.indexOf(filename_in) === -1) {
+            var ajax = $.ajax({
+                type : 'GET',
+                url : 'data/' + filename_in,
+                success : function (response) {
+                    console.log("MURALS DATA RESPONSE OK");
+                    console.log(filename_in);
+                    //console.log(response);
+                    console.log("elements:" + response["elements"].length);
+                    for(let i = 0; i < response["elements"].length; i++) {
+                        let obj = response["elements"][i];
+                        var new_geojson_element = {"type": "Feature","properties":{"image": "", "title":"", "artist_name":"", "info":"" },"geometry": { "type": "", "coordinates": [5.129028,52.075165]}};
+                        if (obj["type"] === "node") {
+                            new_geojson_element["geometry"]["type"] = "Point";
+                            new_geojson_element["geometry"]["coordinates"] = [obj["lon"],obj["lat"]];
+
+                            if(typeof obj["tags"]["image"] !== "undefined"){
+                                new_geojson_element["properties"]["image"] = obj["tags"]["image"];
+                            }
+                            if(typeof obj["tags"]["title"] !== "undefined"){
+                                new_geojson_element["properties"]["title"] = obj["tags"]["title"];
+                            } else if (typeof obj["tags"]["name"] !== "undefined") {
+                                new_geojson_element["properties"]["title"] = obj["tags"]["name"];
+                            }
+                            if(typeof obj["tags"]["artist_name"] !== "undefined"){
+                                new_geojson_element["properties"]["artist_name"] = obj["tags"]["artist_name"];
+                            }
+                            new_geojson_element["properties"]["info"] = obj["tags"];
+                            murals_geojson["features"].push(new_geojson_element);
+                        }
+                        //console.log(obj);
+                    }
+                    files_loaded.push(filename_in);
+                    //murals_data = response;
+                    console.log("END AJAX");
+                    redraw_murals();
+                    //console.log(murals_geojson);
+                    //console.log(files_loaded);
+                },
+                error: function(response){
+                    console.log("ERROR MURALS LOADING");
+                    //console.log(response);
+                }
+            });
+        }
+    }
+
+    function redraw_murals() {
+        console.log("START DRAW MURALS");
+        murals_layer_group.clearLayers();
+        //L.geoJSON(murals_data).addTo(murals_markers);
+        //console.log(murals_geojson);
+        //loop through murals_data
+        var geojson = L.geoJson(murals_geojson, {
+            //console.log("GEOJSON");
+            pointToLayer: function(feature, latlng) {
+                return new IconMural2(latlng, feature.properties);
+            },
+            onEachFeature: function (feature, layer) {
+                //console.log(feature);
+                //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
+                var popup_txt = '<b>Titel</b>: ' + feature.properties.title + '<br/>' ;
+                popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist_name + '<br/>';
+                popup_txt +=  '<b>Technical info</b>:<small style="width=250px;overflow-wrap: anywhere;">' + JSON.stringify(feature.properties.info) + '</small><br/>';
+                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo"/>';
+                layer.bindPopup(popup_txt, {minWidth : 400});
+            }
+        });
+        console.log("DRAW END");
+        murals_layer_group.addLayer(geojson);
+    }
+
+    function update_highlight(){
+        console.log("UPDATE_FILTER");
+        redraw_murals();
+    }
+
+    function clear_highlight_filter(){
+        console.log("CLEAR_FILTER");
+        sett_filter.value = "";
+        redraw_murals();
+    }
+
+</script>
+
+</body>
+</html>

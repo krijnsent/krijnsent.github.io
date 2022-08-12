@@ -1,0 +1,794 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.58.5 b0c4acbb",
+  "osm3s": {
+    "timestamp_osm_base": "2022-08-12T09:31:39Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 717401298,
+  "lat": 51.3208908,
+  "lon": 6.3772677,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Flügelbaum",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 2813984837,
+  "lat": 50.6909092,
+  "lon": 6.6458271,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Marienkirche",
+    "place": "locality",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 3361740124,
+  "lat": 51.6302520,
+  "lon": 6.2055347,
+  "tags": {
+    "artist_name": "Michael Horn",
+    "artwork_type": "mural",
+    "start_date": "2019-06-16",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 3966200376,
+  "lat": 50.9346846,
+  "lon": 6.9513519,
+  "tags": {
+    "artist_name": "Harald Naegeli",
+    "artwork_type": "mural",
+    "image": "https://commons.wikimedia.org/wiki/File:St._C%C3%A4cilien_K%C3%B6ln_-_Totentanz_-_Harald_Naegeli_%287900-02%29.jpg",
+    "name": "Totentanz",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4023537772,
+  "lat": 51.4397163,
+  "lon": 7.0076315,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4198473589,
+  "lat": 51.1965312,
+  "lon": 6.4401222,
+  "tags": {
+    "artwork_type": "mural",
+    "image": "http://mg-anders-sehen.de/portfolio/albertusstrasse-kunstwand/",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4198473590,
+  "lat": 51.1967034,
+  "lon": 6.4315122,
+  "tags": {
+    "artwork_type": "mural",
+    "image": "http://mg-anders-sehen.de/portfolio/bunter-hund/",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4292671646,
+  "lat": 51.4394819,
+  "lon": 7.0066479,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 4436290111,
+  "lat": 51.4543003,
+  "lon": 7.0135944,
+  "tags": {
+    "artist_name": "Peter Brdenk; Jürgen LIT Fischer",
+    "artwork_type": "mural",
+    "name": "Meer Licht",
+    "start_date": "2002",
+    "tourism": "artwork",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4636331998,
+  "lat": 50.7307348,
+  "lon": 7.0996679,
+  "tags": {
+    "artwork_type": "mural",
+    "frequency": "50",
+    "man_made": "street_cabinet",
+    "note": "Künstlerisch gestaltete Trafostation",
+    "operator": "Stadtwerke Bonn",
+    "operator:short": "SWB",
+    "operator:wikidata": "Q152186",
+    "operator:wikipedia": "de:Stadtwerke Bonn",
+    "power": "substation",
+    "street_cabinet": "power",
+    "substation": "minor_distribution",
+    "tourism": "artwork",
+    "voltage": "medium;400"
+  }
+},
+{
+  "type": "node",
+  "id": 5253072414,
+  "lat": 51.6150160,
+  "lon": 7.5241059,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5310200580,
+  "lat": 50.6607555,
+  "lon": 6.7969187,
+  "tags": {
+    "artist_name": "Adolf Wamper",
+    "artwork_type": "mural",
+    "contact:website": "https://www.euskirchen.de/kunst-kultur/kunst-im-oeffentlichen-raum/relief-an-der-fassade-der-stadtverwaltung/",
+    "description": "Relief an der Fassade der Stadtverwaltung",
+    "start_date": "1952",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5669103155,
+  "lat": 50.8243917,
+  "lon": 6.9817300,
+  "tags": {
+    "artist_name": "Bollmer, Nalan U.",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6288839524,
+  "lat": 50.9609704,
+  "lon": 6.7856521,
+  "tags": {
+    "artist_name": "Holger Hagedorn",
+    "artwork_type": "mural",
+    "material": "paint",
+    "name": "VEGETARIA",
+    "start_date": "20.07.2017",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6297969385,
+  "lat": 51.4535357,
+  "lon": 6.7354974,
+  "tags": {
+    "artist_name": "Klaus Osterwald",
+    "artwork_type": "mural",
+    "name": "Große Treppe",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6738274037,
+  "lat": 51.3963175,
+  "lon": 7.1861650,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6908882119,
+  "lat": 51.1676676,
+  "lon": 7.2737669,
+  "tags": {
+    "artwork_type": "mural",
+    "mural": "graffiti",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6919131739,
+  "lat": 50.7701321,
+  "lon": 6.0988971,
+  "tags": {
+    "artist_name": "Miriam Nowak",
+    "artwork_type": "mural",
+    "name": "Wenn Holland nicht wär, läg Aachen am Meer!",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6928623809,
+  "lat": 50.6271945,
+  "lon": 7.0527591,
+  "tags": {
+    "artist_name": "Matthias Furch",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6948885862,
+  "lat": 50.0704626,
+  "lon": 7.4357304,
+  "tags": {
+    "artist_name": "Michael Horn",
+    "artwork_type": "mural",
+    "start_date": "2016-07-26",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7187993453,
+  "lat": 51.5552223,
+  "lon": 7.9848424,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7250730630,
+  "lat": 50.8178356,
+  "lon": 7.1693601,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7639011185,
+  "lat": 51.4329668,
+  "lon": 7.1885201,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8059476246,
+  "lat": 51.6798028,
+  "lon": 7.8162756,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8059476267,
+  "lat": 51.6798960,
+  "lon": 7.8150633,
+  "tags": {
+    "artist_name": "Osman Bol",
+    "artwork_type": "mural",
+    "name": "Biran",
+    "start_date": "2003/2005",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8612235721,
+  "lat": 50.6799091,
+  "lon": 7.1495368,
+  "tags": {
+    "artwork_type": "mural",
+    "material": "stone",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8807575891,
+  "lat": 51.1700259,
+  "lon": 7.0148784,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Familie",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8825980743,
+  "lat": 50.6604823,
+  "lon": 6.7908725,
+  "tags": {
+    "artist_name": "Helmut Moos",
+    "artwork_type": "mural",
+    "contact:website": "https://www.euskirchen.de/kunst-kultur/kunst-im-oeffentlichen-raum/portal-der-herz-jesu-kirche/",
+    "description": "Motiv: Guter Hirte - \"Wunder\" und \"Taten\" Jesu Christi Maße: Tympanon: ca. 250 x 250cm; Portalflügel: ca. 250 x 300cm Technik: Tympanon: Sandstein, Portal: Bronze",
+    "name": "Portal der Herz-Jesu-Kirche",
+    "start_date": "1962",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9176646793,
+  "lat": 51.5155035,
+  "lon": 7.4612259,
+  "tags": {
+    "artist_name": "Stefan Pietryga",
+    "artwork_type": "mural",
+    "height": "4",
+    "indoor": "yes",
+    "name": "Passage",
+    "start_date": "1998",
+    "tourism": "artwork",
+    "website": "https://www.dortmund.de/de/freizeit_und_kultur/museen/kior/alle_kunstwerke/detail_514370.html",
+    "width": "20"
+  }
+},
+{
+  "type": "node",
+  "id": 9439590067,
+  "lat": 50.9514337,
+  "lon": 6.6387295,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "AWO-Gründerin Marie Juchacz",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9700987408,
+  "lat": 50.7179093,
+  "lon": 7.5324932,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9795872082,
+  "lat": 51.9640335,
+  "lon": 6.2889798,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9795872083,
+  "lat": 51.9635148,
+  "lon": 6.2892584,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9912934585,
+  "lat": 50.9357719,
+  "lon": 6.9500381,
+  "tags": {
+    "artist:wikidata": "Q2337903",
+    "artwork_type": "mural",
+    "start_date": "2010",
+    "tourism": "artwork",
+    "wikimedia_commons": "File:Malerei von Stefan Wewerka am Haus Lempertz Köln (4933-35).jpg"
+  }
+},
+{
+  "type": "node",
+  "id": 9934466266,
+  "lat": 51.2663700,
+  "lon": 7.1304582,
+  "tags": {
+    "artist_name": "Martin Dietz",
+    "artwork_type": "mural",
+    "material": "concrete",
+    "name": "Schöpfungsgeschichte",
+    "source": "https://www.wuppertaler-rundschau.de/lokales/wand-am-briller-kreuz-in-wuppertal-bunte-wiederauferstehung_aid-63294215",
+    "start_date": "1975",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 221193735,
+  "bounds": {
+    "minlat": 50.9577645,
+    "minlon": 6.9732640,
+    "maxlat": 50.9627111,
+    "maxlon": 6.9803940
+  },
+  "nodes": [
+    2055100832,
+    32525604,
+    2302486406,
+    2302486407,
+    2431132949,
+    1829256291,
+    316840104,
+    316843184,
+    316843126,
+    316839777,
+    316837456,
+    316843003,
+    3528808734,
+    246648688,
+    2431132951,
+    1828831000,
+    4910444918,
+    1828830995,
+    317762929,
+    335928243,
+    3539964161,
+    246648687
+  ],
+  "geometry": [
+    { "lat": 50.9627111, "lon": 6.9801346 },
+    { "lat": 50.9623789, "lon": 6.9803940 },
+    { "lat": 50.9623287, "lon": 6.9803248 },
+    { "lat": 50.9621350, "lon": 6.9798980 },
+    { "lat": 50.9620201, "lon": 6.9796809 },
+    { "lat": 50.9615353, "lon": 6.9789878 },
+    { "lat": 50.9609214, "lon": 6.9781406 },
+    { "lat": 50.9608149, "lon": 6.9779910 },
+    { "lat": 50.9600204, "lon": 6.9769949 },
+    { "lat": 50.9594089, "lon": 6.9761744 },
+    { "lat": 50.9589257, "lon": 6.9755433 },
+    { "lat": 50.9587025, "lon": 6.9752261 },
+    { "lat": 50.9582222, "lon": 6.9745099 },
+    { "lat": 50.9580961, "lon": 6.9743079 },
+    { "lat": 50.9579564, "lon": 6.9740556 },
+    { "lat": 50.9577799, "lon": 6.9736213 },
+    { "lat": 50.9577663, "lon": 6.9735465 },
+    { "lat": 50.9577645, "lon": 6.9734651 },
+    { "lat": 50.9577878, "lon": 6.9733693 },
+    { "lat": 50.9578101, "lon": 6.9733403 },
+    { "lat": 50.9578442, "lon": 6.9733053 },
+    { "lat": 50.9578927, "lon": 6.9732640 }
+  ],
+  "tags": {
+    "area": "no",
+    "artwork_type": "mural",
+    "barrier": "wall",
+    "description": "Zoomotive",
+    "height": "2.5",
+    "name": "Zoomauer",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 367116258,
+  "bounds": {
+    "minlat": 51.4457090,
+    "minlon": 7.3622038,
+    "maxlat": 51.4463017,
+    "maxlon": 7.3634457
+  },
+  "nodes": [
+    3710664468,
+    3710699685,
+    2831459071
+  ],
+  "geometry": [
+    { "lat": 51.4457090, "lon": 7.3622038 },
+    { "lat": 51.4460001, "lon": 7.3628138 },
+    { "lat": 51.4463017, "lon": 7.3634457 }
+  ],
+  "tags": {
+    "artist_name": "WiWiBu",
+    "artwork_type": "mural",
+    "barrier": "wall",
+    "image": "File:Witten Westfalenstraße 84 -104.jpg",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 473869642,
+  "bounds": {
+    "minlat": 50.7764619,
+    "minlon": 7.1883241,
+    "maxlat": 50.7764897,
+    "maxlon": 7.1883641
+  },
+  "nodes": [
+    4679032054,
+    4679032053,
+    4679032052,
+    4679032051,
+    4679032054
+  ],
+  "geometry": [
+    { "lat": 50.7764897, "lon": 7.1883295 },
+    { "lat": 50.7764649, "lon": 7.1883241 },
+    { "lat": 50.7764619, "lon": 7.1883587 },
+    { "lat": 50.7764867, "lon": 7.1883641 },
+    { "lat": 50.7764897, "lon": 7.1883295 }
+  ],
+  "tags": {
+    "artwork_type": "mural",
+    "building": "yes",
+    "note": "WC für RSVG-Busfahrer",
+    "operator": "RSAG",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 550937635,
+  "bounds": {
+    "minlat": 50.9609501,
+    "minlon": 6.7854943,
+    "maxlat": 50.9609864,
+    "maxlon": 6.7857739
+  },
+  "nodes": [
+    4242709045,
+    6288839524,
+    4242709065
+  ],
+  "geometry": [
+    { "lat": 50.9609501, "lon": 6.7854943 },
+    { "lat": 50.9609704, "lon": 6.7856521 },
+    { "lat": 50.9609864, "lon": 6.7857739 }
+  ],
+  "tags": {
+    "artist_name": "Holger Hagedorn",
+    "artwork_type": "mural",
+    "name": "VEGETARIA",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 598015935,
+  "bounds": {
+    "minlat": 51.2674784,
+    "minlon": 7.1605781,
+    "maxlat": 51.2676077,
+    "maxlon": 7.1608806
+  },
+  "nodes": [
+    5692526517,
+    5692526516,
+    8968560430,
+    440598921,
+    8968560432,
+    5692526515,
+    5692526514,
+    8968560434,
+    440598923,
+    8968560436,
+    5692526517
+  ],
+  "geometry": [
+    { "lat": 51.2675496, "lon": 7.1605781 },
+    { "lat": 51.2676077, "lon": 7.1607814 },
+    { "lat": 51.2675983, "lon": 7.1607943 },
+    { "lat": 51.2675738, "lon": 7.1608275 },
+    { "lat": 51.2675440, "lon": 7.1608683 },
+    { "lat": 51.2675350, "lon": 7.1608806 },
+    { "lat": 51.2674784, "lon": 7.1606764 },
+    { "lat": 51.2674890, "lon": 7.1606614 },
+    { "lat": 51.2675163, "lon": 7.1606239 },
+    { "lat": 51.2675415, "lon": 7.1605891 },
+    { "lat": 51.2675496, "lon": 7.1605781 }
+  ],
+  "tags": {
+    "artist_name": "Martin Heuwold",
+    "artwork_type": "mural",
+    "bridge:structure": "beam",
+    "layer": "1",
+    "man_made": "bridge",
+    "name": "Lego-Brücke",
+    "note": "start_date refers to the dedication date of the Lego mural on the bridge.",
+    "start_date": "2011-10-07",
+    "tourism": "artwork",
+    "website": "http://www.megx.de/?p=1059",
+    "wikidata": "Q1812960",
+    "wikipedia": "de:Lego-Brücke"
+  }
+},
+{
+  "type": "way",
+  "id": 738374128,
+  "bounds": {
+    "minlat": 51.4798808,
+    "minlon": 7.1373492,
+    "maxlat": 51.4799506,
+    "maxlon": 7.1374709
+  },
+  "nodes": [
+    6914058315,
+    6914058316
+  ],
+  "geometry": [
+    { "lat": 51.4799506, "lon": 7.1374709 },
+    { "lat": 51.4798808, "lon": 7.1373492 }
+  ],
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 738374129,
+  "bounds": {
+    "minlat": 51.4798707,
+    "minlon": 7.1373633,
+    "maxlat": 51.4799392,
+    "maxlon": 7.1374871
+  },
+  "nodes": [
+    6914058317,
+    6914058318
+  ],
+  "geometry": [
+    { "lat": 51.4798707, "lon": 7.1373633 },
+    { "lat": 51.4799392, "lon": 7.1374871 }
+  ],
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "way",
+  "id": 838166635,
+  "bounds": {
+    "minlat": 51.5008172,
+    "minlon": 6.8896915,
+    "maxlat": 51.5010676,
+    "maxlon": 6.8902463
+  },
+  "nodes": [
+    7822745844,
+    7822745845,
+    7822745846,
+    7822745847,
+    7822745848,
+    7822745849,
+    7822745850,
+    7822745851
+  ],
+  "geometry": [
+    { "lat": 51.5008172, "lon": 6.8902463 },
+    { "lat": 51.5008718, "lon": 6.8902321 },
+    { "lat": 51.5009175, "lon": 6.8901800 },
+    { "lat": 51.5009484, "lon": 6.8900971 },
+    { "lat": 51.5009676, "lon": 6.8899739 },
+    { "lat": 51.5009676, "lon": 6.8898720 },
+    { "lat": 51.5009525, "lon": 6.8897634 },
+    { "lat": 51.5010676, "lon": 6.8896915 }
+  ],
+  "tags": {
+    "artist_name": "Peter van Treeck",
+    "artwork_type": "mural",
+    "barrier": "wall",
+    "material": "concrete",
+    "name": "Bergbau",
+    "start_date": "1987",
+    "tourism": "artwork",
+    "website": "https://de.wikipedia.org/wiki/Liste_von_Kunstwerken_im_%C3%B6ffentlichen_Raum_in_Oberhausen"
+  }
+},
+{
+  "type": "way",
+  "id": 838166636,
+  "bounds": {
+    "minlat": 51.5007376,
+    "minlon": 6.8886426,
+    "maxlat": 51.5010640,
+    "maxlon": 6.8897154
+  },
+  "nodes": [
+    7822745857,
+    552080902,
+    552080882,
+    7822745852,
+    7822745853,
+    7822745854,
+    7822745855,
+    7822745856
+  ],
+  "geometry": [
+    { "lat": 51.5010640, "lon": 6.8896453 },
+    { "lat": 51.5009460, "lon": 6.8897154 },
+    { "lat": 51.5007546, "lon": 6.8888968 },
+    { "lat": 51.5007376, "lon": 6.8888037 },
+    { "lat": 51.5007420, "lon": 6.8887303 },
+    { "lat": 51.5007789, "lon": 6.8886710 },
+    { "lat": 51.5008172, "lon": 6.8886426 },
+    { "lat": 51.5008732, "lon": 6.8886592 }
+  ],
+  "tags": {
+    "artist_name": "Peter van Treeck",
+    "artwork_type": "mural",
+    "barrier": "wall",
+    "material": "concrete",
+    "name": "Bergbau",
+    "start_date": "1987",
+    "tourism": "artwork",
+    "website": "https://de.wikipedia.org/wiki/Liste_von_Kunstwerken_im_%C3%B6ffentlichen_Raum_in_Oberhausen"
+  }
+},
+{
+  "type": "way",
+  "id": 971408204,
+  "bounds": {
+    "minlat": 51.2802978,
+    "minlon": 7.2388392,
+    "maxlat": 51.2804700,
+    "maxlon": 7.2392399
+  },
+  "nodes": [
+    8990542678,
+    8990542677,
+    92841974,
+    8990542676,
+    8990542675,
+    4612677917,
+    8990542678
+  ],
+  "geometry": [
+    { "lat": 51.2804367, "lon": 7.2388392 },
+    { "lat": 51.2802978, "lon": 7.2391794 },
+    { "lat": 51.2803158, "lon": 7.2392091 },
+    { "lat": 51.2803351, "lon": 7.2392399 },
+    { "lat": 51.2804700, "lon": 7.2389070 },
+    { "lat": 51.2804538, "lon": 7.2388737 },
+    { "lat": 51.2804367, "lon": 7.2388392 }
+  ],
+  "tags": {
+    "artist_name": "Martin Heuwold",
+    "artwork_type": "mural",
+    "layer": "1",
+    "man_made": "bridge",
+    "name": "Lego-Brücke 2.0",
+    "tourism": "artwork",
+    "website": "http://www.megx.de/de/portfolio-reader/lego-bruecke-2-0-regenbogenbruecke.html",
+    "wikidata": "Q1812960",
+    "wikipedia": "de:Lego-Brücke"
+  }
+}
+
+  ]
+}

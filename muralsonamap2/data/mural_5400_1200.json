@@ -1,0 +1,447 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.58.5 b0c4acbb",
+  "osm3s": {
+    "timestamp_osm_base": "2022-08-12T09:33:41Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 746317155,
+  "lat": 55.6663913,
+  "lon": 12.5482482,
+  "tags": {
+    "artist_name": "H. B. Mruta",
+    "artwork_type": "mural",
+    "name": "Tanzania",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 779503817,
+  "lat": 55.6726417,
+  "lon": 12.5496429,
+  "tags": {
+    "artist_name": "Henry Heerup",
+    "artwork_type": "mural",
+    "name": "Europæiske Rejseforsikring -Gavlmaleri",
+    "tourism": "artwork",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3120628942,
+  "lat": 55.8482628,
+  "lon": 12.0597799,
+  "tags": {
+    "artist_name": "Studerende fra Det Kongelige Danske Kunstakademi",
+    "artwork_type": "mural",
+    "name": "En Bjergbestigerske",
+    "note": "Inspirationen til det 375m2 gavlmaleri er hentet fra J.F. Willumsens værk -En Bjergbestigerske",
+    "start_date": "2014-10-06",
+    "tourism": "artwork",
+    "wikimedia_commons": "File:En_Bjergbestigerske.jpg"
+  }
+},
+{
+  "type": "node",
+  "id": 3969261919,
+  "lat": 55.7276426,
+  "lon": 12.3416750,
+  "tags": {
+    "artist_name": "Karl Aage Riget",
+    "artwork_type": "mural",
+    "name": "Facader, Tårne, Skorsten",
+    "note": "Karl Aage Riget har udsmykket boligblokkene og varmecentralen i Grantoften.",
+    "tourism": "artwork",
+    "url": "http://www.ballerup.dk/medier/facader-taarne-skorsten"
+  }
+},
+{
+  "type": "node",
+  "id": 3970386159,
+  "lat": 55.7354717,
+  "lon": 12.3498395,
+  "tags": {
+    "artist:wikidata": "Q23905860",
+    "artist_name": "Bjørn Rødding",
+    "artwork_type": "mural",
+    "name": "Himlens Farver",
+    "note": "Bjørn Rødding har skabt en enorm gavludsmykning til højhuset Bispevangen.",
+    "start_date": "1987",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/himlens-farver"
+  }
+},
+{
+  "type": "node",
+  "id": 3970639136,
+  "lat": 55.7513410,
+  "lon": 12.3117126,
+  "tags": {
+    "artist_name": "Beboere i Eskebjerggård og Mikael Thejll",
+    "artwork_type": "mural",
+    "name": "Fællesmalerier",
+    "note": "To store gavlmalerier i Eskebjerggård i Måløv lavet af en gruppe beboere.",
+    "start_date": "2011",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/faellesmalerier"
+  }
+},
+{
+  "type": "node",
+  "id": 3970910164,
+  "lat": 55.7512974,
+  "lon": 12.3764947,
+  "tags": {
+    "artist:wikidata": "Q28803308",
+    "artist_name": "Peter Hentze",
+    "artwork_type": "mural",
+    "name": "Fugle og farver",
+    "note": "Galvudsmykning af Peter Hentze i Egebjerg.",
+    "start_date": "1990",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/fugle-og-farver"
+  }
+},
+{
+  "type": "node",
+  "id": 5161240070,
+  "lat": 54.0779589,
+  "lon": 12.1342740,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896754,
+  "lat": 55.6749256,
+  "lon": 13.0743071,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896755,
+  "lat": 55.6748991,
+  "lon": 13.0745767,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896756,
+  "lat": 55.6749173,
+  "lon": 13.0743769,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896757,
+  "lat": 55.6746715,
+  "lon": 13.0752727,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896758,
+  "lat": 55.6748107,
+  "lon": 13.0756161,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896759,
+  "lat": 55.6748383,
+  "lon": 13.0752426,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5248896760,
+  "lat": 55.6749025,
+  "lon": 13.0748496,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5581906419,
+  "lat": 54.0905298,
+  "lon": 12.1379567,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5610705732,
+  "lat": 54.0874682,
+  "lon": 12.1255899,
+  "tags": {
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5745911656,
+  "lat": 54.0878814,
+  "lon": 12.1034534,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Pfennig-Deckel",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 5963886899,
+  "lat": 54.3129035,
+  "lon": 13.0872012,
+  "tags": {
+    "artwork_type": "mural",
+    "material": "metal",
+    "name": "Wand des Wissens",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6032728754,
+  "lat": 55.7487332,
+  "lon": 12.3374086,
+  "tags": {
+    "artist:wikidata": "Q20870813",
+    "artist_name": "Finn Mickelborg",
+    "artwork_type": "mural",
+    "name": "Gavlgeometri",
+    "start_date": "1989",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/gavlgeometri"
+  }
+},
+{
+  "type": "node",
+  "id": 6372136845,
+  "lat": 55.9202957,
+  "lon": 12.3082036,
+  "tags": {
+    "artist_name": "Miki Pau Otkjær",
+    "artwork_type": "mural",
+    "mapillary": "Gcpbb197IUnntAPPEuWxgA",
+    "name": "Save the planet now",
+    "start_date": "2019",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6558235785,
+  "lat": 55.6852119,
+  "lon": 12.5916017,
+  "tags": {
+    "artwork_type": "mural",
+    "description": "Rose wall",
+    "source": "https://www.openstreetmap.org/note/1813579",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6637327486,
+  "lat": 55.6407027,
+  "lon": 12.0830038,
+  "tags": {
+    "artwork_type": "mural",
+    "mapillary": "yBhuVUtNpkJaAKW5ayjitA",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6724357251,
+  "lat": 55.8095776,
+  "lon": 12.3652165,
+  "tags": {
+    "artist_name": "Hans Christian Høier",
+    "artwork_type": "mural",
+    "name": "Ukendt titel",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 6724835685,
+  "lat": 55.8134845,
+  "lon": 12.3787167,
+  "tags": {
+    "artist_name": "Zanne Jahn",
+    "artwork_type": "mural",
+    "name": "Uden titel",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7294219167,
+  "lat": 55.6005775,
+  "lon": 13.0017805,
+  "tags": {
+    "artist_name": "Phlegm",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 7804220973,
+  "lat": 55.6299883,
+  "lon": 12.6018672,
+  "tags": {
+    "artist_name": "Anker Hoffmann",
+    "artwork_type": "mural",
+    "material": "bronze",
+    "tourism": "artwork",
+    "website": "https://samlingen.koes.dk/vaerker-i-det-offentlige-rum/2567#ukid"
+  }
+},
+{
+  "type": "node",
+  "id": 8399738780,
+  "lat": 54.0815558,
+  "lon": 12.1579352,
+  "tags": {
+    "artwork_type": "mural",
+    "material": "wood",
+    "name": "Georg Bormann - Baumeister 1876-1936",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 8734401135,
+  "lat": 55.6698061,
+  "lon": 12.6112954,
+  "tags": {
+    "artist_name": "mix-madsen.dk",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9277847539,
+  "lat": 54.9801708,
+  "lon": 12.2748340,
+  "tags": {
+    "artist_name": "Kristian Vodder Svensson",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9531586803,
+  "lat": 55.6670125,
+  "lon": 12.5123286,
+  "tags": {
+    "artwork_type": "mural",
+    "name": "Drømmegavlen",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9599985304,
+  "lat": 55.7244827,
+  "lon": 12.3860589,
+  "tags": {
+    "artist_name": "Bent Holstein",
+    "artwork_type": "mural",
+    "name": "Fuglerelief",
+    "note": "Værk er sat op på muren ved elevatoren",
+    "start_date": "1990",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/fuglerelief-og-farvesaetning"
+  }
+},
+{
+  "type": "node",
+  "id": 9605724668,
+  "lat": 55.5956667,
+  "lon": 13.0064112,
+  "tags": {
+    "artist_name": "Edmalito",
+    "artwork_type": "mural",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9653896917,
+  "lat": 54.0903889,
+  "lon": 12.1463247,
+  "tags": {
+    "artist_name": "Peter Schwarz",
+    "artwork_type": "mural",
+    "name": "Badehaus um 1470",
+    "start_date": "2003",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9660931319,
+  "lat": 54.0712763,
+  "lon": 12.1436915,
+  "tags": {
+    "artist_name": "Bockler????",
+    "artwork_subject": "Malerei einer Schnellzugdampflok am Wasserkran",
+    "artwork_type": "mural",
+    "start_date": "2020",
+    "tourism": "artwork"
+  }
+},
+{
+  "type": "node",
+  "id": 9909347959,
+  "lat": 55.7362748,
+  "lon": 12.3499055,
+  "tags": {
+    "artist_name": "Ole Gjermandsen",
+    "artwork_type": "mural",
+    "name": "Zebrafraktion",
+    "start_date": "1992",
+    "tourism": "artwork",
+    "website": "https://ballerup.dk/brug-byen/kunst-i-ballerup/zebrafraktion"
+  }
+}
+
+  ]
+}
