@@ -112,48 +112,13 @@
     //var murals_markers = new L.FeatureGroup();
     var murals_layer_group = new L.LayerGroup();
     var sett_filter = document.getElementById("highlight_filter");
-
-    var myArray = ['c', 'b', 'c', 2, 'b'];
-    var uniqueArray = myArray.filter((val, ind, arr) => arr.indexOf(val) === ind);
-    var obj = JSON.parse('{"firstName":"John", "lastName":"Doe"}');
-
-    var IconMural = function(latlng, properties) {
-        console.log(latlng);
-        var bg_color = "#FFFFFF";
-        var w = 2;
-        var filter_by = sett_filter.value.toLowerCase();
-
-        if (filter_by === "") {
-            //no different settings
-        } else {
-            //console.log("FILTER");
-            var nn = properties.name.toLowerCase().indexOf(filter_by);
-            var na = properties.artist_name.toLowerCase().indexOf(filter_by);
-            if (nn >= 0 || na >= 0) {
-                w = 4;
-                bg_color = "#FFFF00";
-            } else {
-                // no different settings
-            }
-        }
-        return L.circleMarker(latlng, {
-            radius: 8,
-            fillColor: bg_color,
-            weight: w,
-            color: "#000000",
-            opacity: 1,
-            fillOpacity: 0.6
-        })
-    };
+    var feedback_info = L.control();
 
     var IconMural2 = function(latlng, properties) {
         var b_color = "#000000";
         var filter_by = sett_filter.value.toLowerCase();
-        var im = properties.image;
-        //im = 'img/dummy_mural.jpg';
-        if (im === "") {
-            im = 'img/dummy_mural.jpg';
-        }
+        var im = properties.thumbnail;
+
         if (filter_by === "") {
             //no different settings
         } else {
@@ -170,7 +135,7 @@
         var myIcon2 = L.divIcon({
             className: 'custom-div-icon',
             //html: '<div style="max-width: 50px;max-height: 50px;"><img src="img/'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
-            html: '<div style="max-width: 50px;max-height: 50px;"><img src="'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
+            html: '<div style="max-width: 60px;max-height: 60px;"><img src="'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
             iconSize: [60, 60],
             iconAnchor: [20, 30]
         });
@@ -181,7 +146,7 @@
 
     function initmap() {
         // set up the map
-        m_map = new L.Map('mmap', {zoomControl: true});
+        m_map = new L.Map('mmap', {zoomControl: false});
         var UTRECHT_DOM = [52.0906, 5.1214];
         //get our map
         var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -191,6 +156,12 @@
 
         m_map.attributionControl.setPrefix('');
         m_map.setView(UTRECHT_DOM, 13);
+        feedback_info.addTo(m_map);
+
+
+        L.control.zoom({
+            position:'topright'
+        }).addTo(m_map);
 
         let params = new URLSearchParams(location.search);
         n1 = params.get('q');
@@ -211,8 +182,18 @@
         var sidebar = L.control.sidebar('sidebar').addTo(m_map);
     }
 
+    feedback_info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'feedback_info'); // create a div with a class "info"
+        this.update();
+        return this._div;
+    };
 
-
+    // method that we will use to update the control based on feature properties passed
+    feedback_info.update = function (data) {
+        this._div.innerHTML = '<b>Feedback</b><br/>' +
+            (data ? data
+            : 'Click on a mural to get more info<br/>move the map to load murals');
+    };
 
     function load_murals_data() {
         console.log("LOAD MURALS DATA START");
@@ -222,6 +203,7 @@
         //console.log(m_map.getBounds());
 
         if (m_map.getZoom() >= 10){
+            feedback_info.update("");
             //console.log("ZOOM OK");
             //console.log(m_map.getBounds());
             var cn = m_map.getBounds()._northEast.lat;
@@ -232,7 +214,8 @@
             var cs2 = Math.floor(cs / 2) * 2;
             var cw = m_map.getBounds()._southWest.lng;
             var cw2 = Math.floor(cw / 2) * 2;
-            console.log("ZOOM:"+cn+"_"+ce+"_"+cs+"_"+cw);
+            //console.log("ZOOM>=10, coordinates:"+cn+"_"+ce+"_"+cs+"_"+cw);
+            //console.log("ZOOM>=10, coordinates:"+cn2+"_"+ce2+"_"+cs2+"_"+cw2);
             if (cn2 >= cs2 && ce2 >= cw2) {
                 for(let lati = cs2; lati <= cn2; lati += 2) {
                     for(let lngi = ce2; lngi <= cw2; lngi += 2) {
@@ -242,11 +225,15 @@
                     }
                 }
             }
+        } else {
+            feedback_info.update("Zoom in more to load more murals");
         }
     }
 
     function add_otquery_to_geojson_data(filename_in){
         //not loaded yet?
+        console.log("add_query: " + filename_in);
+        console.log("loaded: " + files_loaded);
         if (files_loaded.indexOf(filename_in) === -1) {
             var ajax = $.ajax({
                 type : 'GET',
@@ -258,13 +245,37 @@
                     console.log("elements:" + response["elements"].length);
                     for(let i = 0; i < response["elements"].length; i++) {
                         let obj = response["elements"][i];
-                        var new_geojson_element = {"type": "Feature","properties":{"image": "", "title":"", "artist_name":"", "info":"" },"geometry": { "type": "", "coordinates": [5.129028,52.075165]}};
-                        if (obj["type"] === "node") {
-                            new_geojson_element["geometry"]["type"] = "Point";
-                            new_geojson_element["geometry"]["coordinates"] = [obj["lon"],obj["lat"]];
+                        var new_geojson_element = {"type": "Feature","properties":{"image": "", "title":"", "artist_name":"", "thumbnail":"", "info":"" },"geometry": { "type": "", "coordinates": [5.129028,52.075165]}};
+                        if (obj["type"] === "node" || obj["type"] === "way") {
+                            //console.log(obj);  || obj["type"] === "way"
+                            if (obj["type"] === "node") {
+                                //node
+                                new_geojson_element["geometry"]["type"] = "Point";
+                                new_geojson_element["geometry"]["coordinates"] = [obj["lon"],obj["lat"]];
+                            } else {
+                                //way, take first coordinate as point
+                                new_geojson_element["geometry"]["type"] = "Point";
+                                new_geojson_element["geometry"]["coordinates"] = [obj["geometry"][0]["lon"],obj["geometry"][0]["lat"]];
+
+                                //{ "type": "Linestring","coordinates": [[10.0,11.2], [10.5, 11.9]] }
+                                //new_geojson_element["geometry"]["type"] = "Linestring";
+                                //var line = obj["geometry"];
+                                //new_geojson_element["geometry"]["coordinates"] = [];
+                                //for(let k=0; k<line.length; k++){
+                                //    new_geojson_element["geometry"]["coordinates"].push([obj["geometry"][k]["lon"],obj["geometry"][k]["lat"]]);
+                                //}
+                                //new_geojson_element["geometry"]["coordinates"] = [obj["geometry"][0]["lon"],obj["geometry"][0]["lat"]];
+                                //console.log(new_geojson_element["geometry"]);
+                            }
+
 
                             if(typeof obj["tags"]["image"] !== "undefined"){
                                 new_geojson_element["properties"]["image"] = obj["tags"]["image"];
+                            }
+                            if(typeof obj["tags"]["img_thumbnail"] !== "undefined"){
+                                new_geojson_element["properties"]["thumbnail"] = "img/" + obj["tags"]["img_thumbnail"];
+                            } else {
+                                new_geojson_element["properties"]["thumbnail"] = "img/dummy_mural_wall.jpg";
                             }
                             if(typeof obj["tags"]["title"] !== "undefined"){
                                 new_geojson_element["properties"]["title"] = obj["tags"]["title"];
@@ -277,6 +288,7 @@
                             new_geojson_element["properties"]["info"] = obj["tags"];
                             murals_geojson["features"].push(new_geojson_element);
                         }
+
                         //console.log(obj);
                     }
                     files_loaded.push(filename_in);
@@ -287,6 +299,7 @@
                     //console.log(files_loaded);
                 },
                 error: function(response){
+                    feedback_info.update("No murals<br/>Area not scraped (yet)");
                     console.log("ERROR MURALS LOADING");
                     //console.log(response);
                 }
@@ -295,7 +308,7 @@
     }
 
     function redraw_murals() {
-        console.log("START DRAW MURALS");
+        console.log("START REDRAW");
         murals_layer_group.clearLayers();
         //L.geoJSON(murals_data).addTo(murals_markers);
         //console.log(murals_geojson);
@@ -310,8 +323,18 @@
                 //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
                 var popup_txt = '<b>Titel</b>: ' + feature.properties.title + '<br/>' ;
                 popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist_name + '<br/>';
-                popup_txt +=  '<b>Technical info</b>:<small style="width=250px;overflow-wrap: anywhere;">' + JSON.stringify(feature.properties.info) + '</small><br/>';
-                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo"/>';
+                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo"/><br/>';
+
+                var p = feature.properties.info;
+                Object.keys(p).forEach(function(key) {
+                    if (key.substring(0,5) === 'image') {
+                        popup_txt +=  '<a href="' + p[key] + '" target="_blank">IMAGE LINK</a> ';
+                        //console.table('Key : ' + key + ', Value : ' + p[key])
+                    }
+                })
+                popup_txt +=  '<br/>';
+
+                popup_txt +=  '<b>Technical details</b>:<small style="width=250px;overflow-wrap: anywhere;">' + JSON.stringify(feature.properties.info) + '</small><br/>';
                 layer.bindPopup(popup_txt, {minWidth : 400});
             }
         });

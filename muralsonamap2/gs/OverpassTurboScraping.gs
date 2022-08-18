@@ -36,12 +36,16 @@ function LoopGetSaveOTData(){
     var diff_days = Math.floor((rw_date-d)/(24*3600*1000));
 
     //Logger.log(i + "_" + rw_lat + "_" + rw_lon);
-    if(diff_days < 7 && rw_status !== "OK"){
+    if(diff_days < -7 || rw_status !== "DOWNLOADED"){
       //Logger.log(diff_days + "_" + scrape_status);
       //fixed area, 2 degrees wide, 2 high
-      var qry = BuildOTQuery("[tourism=artwork][artwork_type=mural]",rw_lat,rw_lon,rw_lat+2,rw_lon+2);
+      var qry = BuildOTQuery('[tourism=artwork]["artwork_type"~"(mural|street_art)"]',rw_lat,rw_lon,rw_lat+2,rw_lon+2);
+      var qry = encodeURIComponent(qry);
 
-      response_data = UrlFetchApp.fetch(base_url + qry, fetch_options); 
+//[out:json];(nwr[tourism=artwork][artwork_type=mural](52.0,5.0,52.5,5.5);nwr[tourism=artwork][artwork_type=street_art](52.0,5.0,52.5,5.5););out geom;
+//nwr["artwork_type"~"(mural|street_art)"]
+
+      response_data = UrlFetchApp.fetch(base_url + qry, fetch_options);
       var file_contents = response_data.getContentText();
       try {
           var obj = JSON.parse(file_contents);
@@ -53,7 +57,7 @@ function LoopGetSaveOTData(){
           CreateUpdateFile(save_folder, file_nm, file_contents);
 
           rng_data_info[i][2] = d;
-          rng_data_info[i][3] = "OK";
+          rng_data_info[i][3] = "DOWNLOADED";
           rng_data_info[i][4] = file_nm;
       }
       catch (e) {
@@ -65,6 +69,7 @@ function LoopGetSaveOTData(){
       nr_queries++;
     }
   }
+  //write results to sheet
   sheet_data.getRange(2,1,rw_last,5).setValues(rng_data_info);
 }
 
