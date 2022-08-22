@@ -6,7 +6,7 @@ var folder_id = "1zm0hrVckWv9AuwdJXe-M8acLA3ME7sXQ";
 // name can be found as the end part after https://docs.google.com/spreadsheets/d/
 var wb_id = "1qIiy3nOha_m1qNAGsQ_uby8JHvY1hGnJoeohriRw97E";
 var sheet_name = "BASE";
-var max_downloads = 20;
+var max_downloads = 30;
 var current_downloads = 0;
 
 //Run this function to test the folder & spreadsheet

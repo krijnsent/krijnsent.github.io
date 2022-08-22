@@ -36,7 +36,7 @@ function LoopGetSaveOTData(){
     var diff_days = Math.floor((rw_date-d)/(24*3600*1000));
 
     //Logger.log(i + "_" + rw_lat + "_" + rw_lon);
-    if(diff_days < -7 || rw_status !== "DOWNLOADED"){
+    if(diff_days < -7 || (rw_status !== "DOWNLOADED" || rw_status !== "POSTPROCESS_OK")){
       //Logger.log(diff_days + "_" + scrape_status);
       //fixed area, 2 degrees wide, 2 high
       var qry = BuildOTQuery('[tourism=artwork]["artwork_type"~"(mural|street_art)"]',rw_lat,rw_lon,rw_lat+2,rw_lon+2);
@@ -45,7 +45,7 @@ function LoopGetSaveOTData(){
 //[out:json];(nwr[tourism=artwork][artwork_type=mural](52.0,5.0,52.5,5.5);nwr[tourism=artwork][artwork_type=street_art](52.0,5.0,52.5,5.5););out geom;
 //nwr["artwork_type"~"(mural|street_art)"]
 
-      response_data = UrlFetchApp.fetch(base_url + qry, fetch_options);
+      response_data = UrlFetchApp.fetch(base_url + qry, fetch_options); 
       var file_contents = response_data.getContentText();
       try {
           var obj = JSON.parse(file_contents);

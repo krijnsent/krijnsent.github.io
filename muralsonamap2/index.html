@@ -321,9 +321,12 @@
             onEachFeature: function (feature, layer) {
                 //console.log(feature);
                 //var mural_pos = new L.LatLng(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
+                var im = feature.properties.thumbnail;
+                //im = "https://placeimg.com/200/300/animals";
                 var popup_txt = '<b>Titel</b>: ' + feature.properties.title + '<br/>' ;
                 popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist_name + '<br/>';
-                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo"/><br/>';
+                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo" onError="this.onerror=null;this.src=\'' + im + '\';" /><br/>';
+                //popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + im + '" alt="Photo" onError="this.onerror=null;this.remove();" /><br/>';
 
                 var p = feature.properties.info;
                 Object.keys(p).forEach(function(key) {
