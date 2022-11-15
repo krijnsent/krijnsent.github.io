@@ -1,0 +1,28 @@
+[
+  {
+    "page":"excel-fantasy-map.html",
+    "img":"bla.png",
+    "description": "Hello world"
+  },
+  {
+    "page":"excel-vba-github.html",
+    "img":"bla.png",
+    "description": "Hello world"
+  }
+]
+
+
+<!-- concept - 1 page with index - squares with tags, filter in top bar -->
+<!-- concept - actions in JS -->
+
+<!-- https://github.com/tomik23/leaflet-examples/blob/master/index.html -->
+<!-- view-source:https://tomik23.github.io/leaflet-examples/ -->
+<!-- https://github.com/tomik23/leaflet-examples/blob/master/static/script.js -->
+
+<!-- ONE main page with filter -->
+<!-- JSON with items, img & description -->
+<!-- JAVASCRIPT -->
+
+<!-- article/page html - contents only -->
+
+<!-- back to index button on all pages -->
