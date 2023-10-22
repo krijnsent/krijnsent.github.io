@@ -2,72 +2,374 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Fixed top navbar example · Bootstrap v5.1</title>
+    <meta name="author" content="Koen Rijnsent">
+    <meta name="description" content="Projects of Koen Rijnsent">
+    <meta name="keywords" content="Excel, ">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/style/bootstrap.min.css" rel="stylesheet">
+    <title>krijnsent.github.io</title>
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="/css/bootstrap-5.3.2.min.css">
+    <link rel="stylesheet" href="/css/style_krijnsent.css">
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
     </style>
 
-    <!-- Custom styles for this template -->
-    <link href="style/navbar-top-fixed.css" rel="stylesheet">
 </head>
+
 <body>
+    <!-- BLOCK SVG ICONS -->
+    <svg width="0" height="0">
+        <symbol id="book-half" viewBox="0 0 16 16">
+            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"></path>
+        </symbol>
+        <symbol id="stone" viewBox="0 0 120 120">
+            <g transform="translate(0.000000,120.000000) scale(0.100000,-0.100000)" >
+                <path d="M421 1170 c-119 -32 -375 -181 -350 -204 11 -10 262 -86 283 -86 33 0 636 127 645 136 8 8 -43 106 -60 115 -47 25 -193 50 -314 55 -109 4 -142 1 -204 -16z"/>
+                <path d="M960 952 c-36 -7 -168 -36 -295 -63 -126 -28 -238 -52 -248 -55 -14 -5 -10 -14 30 -58 27 -29 136 -152 244 -272 109 -120 219 -244 246 -274 l50 -54 43 179 c23 99 55 235 71 303 l30 123 -41 78 c-60 115 -53 110 -130 93z"/>
+                <path d="M25 909 c12 -20 567 -853 571 -858 7 -8 361 52 371 63 2 2 -6 15 -19 29 -13 13 -156 173 -319 353 l-297 329 -138 44 c-186 59 -179 57 -169 40z"/>
+            </g>
+        </symbol>
+        <symbol id="flag-nl" viewBox="0 0 640 480">
+            <g fill-rule="evenodd" stroke-width="1pt">
+                <path fill="#FFFFFF" d="M0 160.003h640v160.003H0z"/>
+                <path fill="#FF0000" d="M0 0h640v160.003H0z"/>
+                <path fill="#0000FF" d="M0 319.997h640V480H0z"/>
+            </g>
+        </symbol>
 
-<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
-<!--    <div class="container-fluid">-->
-<!--        <a class="navbar-brand" href="#">Fixed navbar</a>-->
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarCollapse">-->
-<!--            <ul class="navbar-nav me-auto mb-2 mb-md-0">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link active" aria-current="page" href="#">Home</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="#">Link</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <form class="d-flex">-->
-<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
+        <symbol id="envelope-at-fill" viewBox="0 0 16 16">
+            <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z"/>
+            <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z"/>
+        </symbol>
 
-<main class="container">
-    <div class="bg-light p-5 rounded">
-        <h1>Index for krijnsent.github.io</h1>
-        <a href="excel/excel-fantasy-map.html">Excel Fantasy Map creator</a>
-        <a href="excel/excel-vba-github.html">Excel VBA to Github</a>
-        <a href="muralsonamap2/index.html">Leaflet JS - Murals on a Map v2</a>
-        <a href="muralsonamap/index.html">Leaflet JS - Murals on a Map (OLD)</a>
-    </div>
-</main>
+        <symbol id="0-square-fill" viewBox="0 0 16 16">
+            <path d="M8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z"/>
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm5.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99Z"/>
+        </symbol>
 
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/load_menu.js"></script>
-<script src="/js/load_contents.js"></script>
+        <symbol id="favicon" viewBox = "0 0 16 16">
+            <rect width="16" height="16" style="fill:rgb(255,255,0);stroke-width:4;stroke:rgb(0,0,0)" />
+        </symbol>
 
+        <symbol id="boxes" viewBox="0 0 16 16">
+            <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+        </symbol>
+
+        <symbol id="menu-button-wide" viewBox="0 0 16 16">
+            <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-13z"/>
+            <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+        </symbol>
+
+    </svg>
+
+    <!-- BLOCK NAVBAR/MENU -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand UnloadItem" href="index.html#">
+                <svg width="3rem"  height="3rem" >
+                    <use href="#favicon" />
+                </svg>
+                <b class="d-none d-lg-inline">krijnsent.github.io</b>
+            </a>
+            <div class="d-md-none">
+                <div class="navbar-collapse" id="navbarIconsOnly">
+                    <ul class="navbar-nav nav-ul-md-icons">
+                        <li class="nav-item nav-li-md-icon">
+                            <a class="nav-link UnloadItem" aria-current="page" href="index.html#Intro">
+                                <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                    <use href="#0-square-fill"><title>Intro</title></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-li-md-icon">
+                            <a class="nav-link UnloadItem" aria-current="page" href="index.html#Projects">
+                                <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                    <use href="#boxes"><title>Projects</title></use>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="nav-item nav-li-md-icon" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <a class="nav-link UnloadItem" aria-current="page" href="index.html#">
+                                <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                    <use href="#menu-button-wide"><title>Menu</title></use>
+                                </svg>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link active UnloadItem" aria-current="page" href="index.html#">
+                            <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                <use href="#favicon"></use>
+                            </svg>
+                            <span>krijnsent.github.io</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link UnloadItem" aria-current="page" href="index.html#Intro">
+                            <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                <use href="#0-square-fill"></use>
+                            </svg>
+                            <span>Intro</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link UnloadItem" href="index.html#Projects">
+                            <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                <use href="#boxes"></use>
+                            </svg>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr class="d-lg-none text-white-50">
+                <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                    <!-- ICON BAR RIGHT -->
+                    <li class="nav-item col-lg-auto">
+                        <a class="nav-link py-2 px-0 px-lg-2 UnloadItem" href="index.html#Footer">
+                            <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                                <use href="#envelope-at-fill"></use>
+                            </svg>
+                            <small class="d-md-none">
+                                inf<!-- --><span style="display: none;">VERWIJDER_DIT</span>o@castoro.nl
+                            </small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BLOCK CONTENT -->
+    <main class="container" style="padding-top: 3rem;">
+        <div class="col" id="Intro">
+            <div class="card mb-4 rounded-3">
+                <div class="card-header">
+                    <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                        <use href="#0-square-fill"></use>
+                    </svg>
+                    <h3>Intro</h3>
+                </div>
+                <div class="card-body">
+                    This is a simple page to host my GitHub projects and give them some context :-).
+                    All sources can be found at my Github: <a href="https://github.com/krijnsent?tab=repositories" target="_blank">https://github.com/krijnsent/</a>.
+                </div>
+            </div>
+        </div>
+
+        <div class="col" id="Projects">
+            <div class="card mb-4 rounded-3">
+                <div class="card-header">
+                    <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                        <use href="#boxes"></use>
+                    </svg>
+                    <h3>Projects</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/excel/img/excel-fantasy-map-goal.png" class="img-fluid rounded-start" alt="Fantasy map">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Excel fantasy map creator</h5>
+                                            <p class="card-text">
+                                                A spreadsheet to create a fantasy map for games, including a how-to.
+                                                <a class="LoadItem" href="excel/excel-fantasy-map.html">Excel Fantasy Map</a>
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">
+                                               <a href="https://www.dropbox.com/s/0ngjkp0kabugks6/WorldOfEmpires2_map_edit_steemit.xlsx?dl=0" target="_blank">Download the excel here</a> from dropbox
+                                            </small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/excel/img/excel-vba-logo.png" class="img-fluid rounded-start" alt="VBA">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">VBA to Github</h5>
+                                            <p class="card-text">
+                                                A 5 step how-to for VBA/Excel developers who want to share their code and want to have structure in their excel-tool development
+                                                <a class="LoadItem" href="excel/excel-vba-github.html">Excel VBA to Github</a>
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary"></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/muralsonamap/img/52103777_5114193.png" class="img-fluid rounded-start" alt="A mural in Utrecht, NL">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Leaflet JS - Murals on a Map (v1)</h5>
+                                            <p class="card-text">
+                                                A project to display murals in Utrecht (NL) on a map, using OpenStreetMap data and LeafletJS.
+                                                <a class="LoadItem" href="muralsonamap/about.html">About MuralsOnAMap</a>
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Direct link <a href="muralsonamap/index.html">to the map</a></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/muralsonamap2/img/node_10177958900_0.jpg" class="img-fluid rounded-start" alt="A mural in Utrecht, NL">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Leaflet JS - Murals on a Map (v2)</h5>
+                                            <p class="card-text">
+                                                Second version of my project to display murals on a map, using OpenStreetMap data and LeafletJS.
+                                                I'm scraping the info using Google Sheets/scripts.
+                                                <a class="LoadItem" href="muralsonamap2/about.html">About</a>
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Direct link <a href="muralsonamap2/index.html">to the map</a></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/projects/wrdfndr_logo.png" class="img-fluid rounded-start" alt="Wrdfndr Logo">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">WRDFNDR - a tool to make wordfinder puzzles</h5>
+                                            <p class="card-text">
+                                                I built an Excel tool that can create wordfinder puzzles and am re-working that into an online tool.
+                                                The code can be found <a href="https://github.com/krijnsent/wrdfndr">here (WIP)</a> and the Excel first version download is <a href="https://wrdfndr.com/downloads/CrosswordPuzzleMaker.xlsm">here</a>.
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Working prototype: <a href="https://wrdfndr.com/">wrdfndr.com</a></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/projects/vba_logo.png" class="img-fluid rounded-start" alt="Geo VBA">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Geo VBA</h5>
+                                            <p class="card-text">
+                                                Some code I wrote to load geographical information into Excel. Uses VBA and OSM/OverpassTurbo as the source.
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Code: <a href="https://github.com/krijnsent/geo_vba">in this repo</a></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/projects/vba_logo.png" class="img-fluid rounded-start" alt="Crypto VBA">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Crypto VBA</h5>
+                                            <p class="card-text">
+                                                A lot of code I wrote to connect Excel to various crypto exchanges.
+                                                A good example on how a hobby got out of hand ;-).
+                                                Note that most code is outdated (parties updated their APIs) and I'm no longer maintaining it.
+                                                Second note: I built the code to test my skills and to try to automate trading on various crypto platforms.
+                                                The code worked but my trading results were terrible.
+                                            </p>
+                                            <p class="card-text"><small class="text-body-secondary">Code: <a href="https://github.com/krijnsent/crypto_vba">in this repo</a></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col d-none" id="selProject">
+            <div class="card mb-4 rounded-3">
+                <div class="card-header">
+                    <svg width="32" height="24" fill="#FFFF99" class="img_menu_icon">
+                        <use href="#book-half"></use>
+                    </svg>
+                    <h3 id="selTitle">TITLE DETAILS</h3>
+                </div>
+                <div class="card-body" id="selContents">
+                    CONTENTS
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- BLOCK FOOTER -->
+    <footer class="bd-footer container" id="Footer">
+        <div class="row">
+            <!-- // footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bd-footer" id="Footer"-->
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0">© 2023 krijnsent.github.io</span>
+            </div>
+
+            <div class="col-md-4 d-flex align-items-right">
+                <svg width="32" height="24" fill="#000033" class="img_menu_icon">
+                    <use href="#envelope-at-fill"></use>
+                </svg>
+                <small>
+                    inf<!-- --><span style="display: none;">VERWIJDER_DIT</span>o@castoro.nl
+                </small>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- BLOCK SCRIPTS -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap-5.3.2.bundle.min.js"></script>
+    <script src="/js/load_menu.js"></script>
+    <script src="/js/load_contents.js"></script>
 </body>
+
 </html>

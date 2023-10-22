@@ -1,0 +1,30 @@
+html {
+    scroll-padding-top: 5rem;
+}
+body {
+    padding-top: 1rem;
+}
+.nav-ul-md-icons {
+    flex-direction: row;
+}
+.nav-li-md-icon {
+    padding-right: var(--bs-navbar-nav-link-padding-x);
+    padding-left: var(--bs-navbar-nav-link-padding-x);
+    border-width: medium;
+    border-style: solid;
+    border-radius: 0.5em;
+    background: #666666;
+}
+
+.card-header h3 {
+    display: inline;
+    vertical-align: middle;
+    color: white;
+}
+.card-header {
+    background-color: var(--bs-body-color);
+}
+.container {
+    padding-right: calc(var(--bs-gutter-x) * .3);
+    padding-left: calc(var(--bs-gutter-x) * .3);
+}

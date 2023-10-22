@@ -135,6 +135,36 @@
     };
 
 
+    var IconMural2 = function(latlng, properties) {
+        var b_color = "#000000";
+        var filter_by = sett_filter.value.toLowerCase();
+        var im = properties.image.toLowerCase();
+
+        if (filter_by === "") {
+            //no different settings
+        } else {
+            //console.log("FILTER");
+            var nn = properties.name.toLowerCase().indexOf(filter_by);
+            var na = properties.artist.toLowerCase().indexOf(filter_by);
+            if (nn >= 0 || na >= 0) {
+                b_color = "#FF0000";
+            } else {
+                // no different settings
+            }
+        }
+
+
+        var myIcon2 = L.divIcon({
+            className: 'custom-div-icon',
+            html: '<div style="max-width: 50px;max-height: 50px;"><img src="img/'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
+            iconSize: [60, 60],
+            iconAnchor: [20, 30]
+        });
+        return L.marker(latlng, {
+            icon: myIcon2
+        })
+    };
+
     function initmap() {
         // set up the map
         m_map = new L.Map('mmap', {zoomControl: false});
@@ -184,7 +214,7 @@
         //loop through murals_data
         var geojson = L.geoJson(murals_data, {
             pointToLayer: function(feature, latlng) {
-                return new IconMural(latlng, feature.properties);
+                return new IconMural2(latlng, feature.properties);
             },
             onEachFeature: function (feature, layer) {
                 //console.log(feature);
@@ -196,6 +226,16 @@
                 layer.bindPopup(popup_txt, {minWidth : 300});
             }
         });
+
+        /*const noSanta = L.marker( center, {
+            icon: L.divIcon({
+                className: 'icon',
+                html: `<div class="icon-santa">🎅</div>`,
+                iconSize: 50
+            })
+        });*/
+
+
 
         murals_layer_group.addLayer(geojson);
     }

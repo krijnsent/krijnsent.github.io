@@ -1,3 +1,121 @@
+$('.LoadItem').click(function handleClick(event) {
+    event.preventDefault();
+    loadInfo("LOAD", event.target.href);
+    // var v = $(this);
+    // console.log("LOAD");
+    // console.log (v.outerHTML());
+});
+
+$('.UnloadItem').click(function handleClick(event) {
+    loadInfo("UNLOAD", event.target.href);
+    //console.log(event.target.href);
+    //event.target.classList.add('bg-yellow');
+});
+
+
+//     function(){
+//     var v = $(this);
+//     console.log("UNLOAD");
+//     console.log(origin.href);
+//     console.log (v);
+// });
+
+function loadInfo(act, url) {
+
+    bI = document.getElementById('Intro');
+    bP = document.getElementById('Projects');
+    bS = document.getElementById('selProject');
+
+    if (act === "LOAD") {
+        bI.className = "col d-none";
+        bP.className = "col d-none";
+        bS.className = "col d-block";
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                // Initialize the DOM parser
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, "text/html");
+                // You can now even select part of that html as you would in the regular DOM
+                // Example:
+                // var docArticle = doc.querySelector('article').innerHTML;
+                //console.log(doc);
+                console.log("PROCESS");
+                console.log(doc.getElementsByTagName("title").text);
+                document.getElementById('selTitle').innerHTML = url;
+                document.getElementById('selContents').innerHTML = html;
+            })
+            .catch(error => {
+                document.getElementById('selContents').innerHTML = "ERROR, see log";
+                console.log(error);
+            });
+        //preventdefault
+        //return false;
+    } else {
+        bI.className = "col d-block";
+        bP.className = "col d-block";
+        bS.className = "col d-none";
+    }
+    //console.log(b1.className);
+    //console.log(url);
+    //'selProject','selProject selTitle' selContents
+    //class="col d-none" -> d-
+}
+
+//-texa nikon
+//-roofing service
+//-dordrecht dakservice
+//
+
+// document.addEventListener(`click`, e => {
+//     const origin = e.target.closest(`a`);
+//     if (origin) {
+//         const href = origin.href;
+//
+//
+//
+//
+//
+//
+//         console.log(href);
+//     }
+// });
+//
+// function loadInfo(url) {
+//
+//     bI = document.getElementById('Intro');
+//     bP = document.getElementById('Projects');
+//     bS = document.getElementById('selProject');
+//
+//     if (url !== "") {
+//         bI.className = "col d-none";
+//         bP.className = "col d-none";
+//         bS.className = "col d-block";
+//
+//         document.getElementById('selTitle').innerHTML = url;
+//         fetch(url)
+//             .then(response => response.text())
+//             .then(html => {
+//                 document.getElementById('selContents').innerHTML = html;
+//             })
+//             .catch(error => {
+//                 document.getElementById('selContents').innerHTML = "ERROR, see log";
+//                 console.log(error);
+//             });
+//     } else {
+//         bI.className = "col d-block";
+//         bP.className = "col d-block";
+//         bS.className = "col d-none";
+//     }
+//     //console.log(b1.className);
+//     //console.log(url);
+//     //'selProject','selProject selTitle' selContents
+//     //class="col d-none" -> d-
+// }
+//
+//
+
 // document.addEventListener("DOMContentLoaded", () => {
 //     const place = document.getElementById("section-example");
 //     const subTitle = document.querySelector("h2");
@@ -52,10 +170,10 @@
 //         const activeMenu = document.querySelector(".active-menu");
 //         activeMenu.classList.remove("active-menu");
 //
-//         const style = check
+//         const css = check
 //             ? example
 //             : document.querySelector(`a[data-iframe="${example}"`);
-//         style.classList.add("active-menu");
+//         css.classList.add("active-menu");
 //
 //         const dataIframe = check ? example.getAttribute("data-iframe") : example;
 //
