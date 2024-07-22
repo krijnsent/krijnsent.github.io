@@ -50,15 +50,10 @@
     <div class="sidebar-content">
         <div class="sidebar-pane" id="home">
             <h1 class="sidebar-header">
-                Murals on a map v2 BETA
+                Murals on a map v2b BETA
                 <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
             </h1>
-            <p>A hobby project to map out murals in NL/BE and surroundings. Last update: Jun-2024</p>
-            <p>Please leave feedback/suggestions at <a href="https://www.reddit.com/user/krijnsent" target="_blank">my Reddit</a>
-            or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.</p>
-            <p>If you want to contribute: get an OSM account and use e.g.<a href="https://mapcomplete.org/artwork.html">MapComplete</a>.</p>
-            <p>Try e.g. <a href="?q=verfdokter">/?q=verfdokter</a> for all works from Verfdokter.</p>
-            <h4>Highlight murals by artist or by title</h4>
+            <h4>Highlight murals by artist/title</h4>
             <form class="form-horizontal">
                 <div class="input-group">
                     <input type="text" id="highlight_filter" class="form-control" placeholder="Highlight with text" oninput="update_highlight();" aria-label="Highlight with text" aria-describedby="basic-addon2" value="" >
@@ -66,8 +61,27 @@
                         <button class="btn btn-outline-danger" type="button" onclick="clear_highlight_filter();" >X</button>
                     </div>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="highlight_with_image" onclick="update_highlight();">
+                    <label class="form-check-label" for="highlight_with_image">
+                        Only show murals with image
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="highlight_street_cabinet" onclick="update_highlight();">
+                    <label class="form-check-label" for="highlight_street_cabinet">
+                        Only show street cabinets
+                    </label>
+                </div>
+
             </form>
-			<p>Todo: filter "street_cabinet" only</p>
+            <br/>
+            <p>Please leave feedback/suggestions at <a href="https://www.reddit.com/user/krijnsent" target="_blank">my Reddit</a>
+                or as an issue at <a href="https://github.com/krijnsent/krijnsent.github.io" target="_blank">the Github repo</a>.</p>
+            <p>If you want to contribute: get an OSM account and use e.g.<a href="https://mapcomplete.org/artwork.html">MapComplete</a>.</p>
+            <p>Try e.g. <a href="?q=verfdokter">/?q=verfdokter</a> for all works from Verfdokter.</p>
+            <p>Or try e.g. <a href="?cab=true&img=true">/?cab=true&img=true</a> for all street cabinets with an image.</p>
+
         </div>
 
         <div class="sidebar-pane" id="about">
@@ -113,31 +127,18 @@
     //var murals_markers = new L.FeatureGroup();
     var murals_layer_group = new L.LayerGroup();
     var sett_filter = document.getElementById("highlight_filter");
+    var sett_img_filter = document.getElementById("highlight_with_image");
+    var sett_cab_filter = document.getElementById("highlight_street_cabinet");
     var feedback_info = L.control();
 
     var IconMural2 = function(latlng, properties) {
         var b_color = "#000000";
-        var filter_by = sett_filter.value.toLowerCase();
         var im = properties.thumbnail;
-
-        if (filter_by === "") {
-            //no different settings
-        } else {
-            console.log("FILTER");
-            var nn = properties.title.toLowerCase().indexOf(filter_by);
-            var na = properties.artist_name.toLowerCase().indexOf(filter_by);
-            if (nn >= 0 || na >= 0) {
-                b_color = "#FF0000";
-            } else {
-                // no different settings
-            }
-        }
-
+        icon_html = '<div style="max-height: 60px;max-width: 80px;"><img src="'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>';
         var myIcon2 = L.divIcon({
             className: 'custom-div-icon',
-            //html: '<div style="max-width: 50px;max-height: 50px;"><img src="img/'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
-            html: '<div style="max-width: 60px;max-height: 60px;"><img src="'+im+'" style="width: 100%;height: 100%;border-radius: 25%;border: 2px solid '+b_color+';" /></div>',
-            iconSize: [60, 60],
+            html: icon_html,
+            iconSize: [80, 60],
             iconAnchor: [20, 30]
         });
         return L.marker(latlng, {
@@ -159,15 +160,18 @@
         m_map.setView(UTRECHT_DOM, 13);
         feedback_info.addTo(m_map);
 
-
         L.control.zoom({
             position:'topright'
         }).addTo(m_map);
 
         let params = new URLSearchParams(location.search);
-        n1 = params.get('q');
-        sett_filter.value = n1;
-        
+        nq = params.get('q');
+        sett_filter.value = nq;
+        nimg = params.get('img');
+        sett_img_filter.checked = nimg;
+        ncab = params.get('cab');
+        sett_cab_filter.checked = ncab;
+
         murals_layer_group.addTo(m_map);
 
         m_map.on('zoomend', function() {
@@ -233,17 +237,17 @@
 
     function add_otquery_to_geojson_data(filename_in){
         //not loaded yet?
-        console.log("add_query: " + filename_in);
-        console.log("loaded: " + files_loaded);
+        //console.log("add_query: " + filename_in);
+        //console.log("loaded: " + files_loaded);
         if (files_loaded.indexOf(filename_in) === -1) {
             var ajax = $.ajax({
                 type : 'GET',
                 url : 'data/' + filename_in,
                 success : function (response) {
                     console.log("MURALS DATA RESPONSE OK");
-                    console.log(filename_in);
+                    //console.log(filename_in);
                     //console.log(response);
-                    console.log("elements:" + response["elements"].length);
+                    //console.log("elements:" + response["elements"].length);
                     for(let i = 0; i < response["elements"].length; i++) {
                         let obj = response["elements"][i];
                         var new_geojson_element = {"type": "Feature","properties":{"image": "", "title":"", "artist_name":"", "thumbnail":"", "info":"" },"geometry": { "type": "", "coordinates": [5.129028,52.075165]}};
@@ -294,14 +298,14 @@
                     }
                     files_loaded.push(filename_in);
                     //murals_data = response;
-                    console.log("END AJAX");
+                    //console.log("END AJAX");
                     redraw_murals();
                     //console.log(murals_geojson);
                     //console.log(files_loaded);
                 },
                 error: function(response){
                     feedback_info.update("No murals<br/>Area not scraped (yet)");
-                    console.log("ERROR MURALS LOADING");
+                    //console.log("ERROR MURALS LOADING");
                     //console.log(response);
                 }
             });
@@ -310,6 +314,9 @@
 
     function redraw_murals() {
         console.log("START REDRAW");
+        var filter_by = sett_filter.value.toLowerCase();
+        var filter_by_img = sett_img_filter.checked;
+        var filter_by_cab = sett_cab_filter.checked;
         murals_layer_group.clearLayers();
         //L.geoJSON(murals_data).addTo(murals_markers);
         //console.log(murals_geojson);
@@ -317,7 +324,44 @@
         var geojson = L.geoJson(murals_geojson, {
             //console.log("GEOJSON");
             pointToLayer: function(feature, latlng) {
-                return new IconMural2(latlng, feature.properties);
+                //console.log(latlng);
+                var show_pt = true;
+                //filter by name check
+                if (filter_by !== "" ) {
+                    var nn = feature.properties.title.toLowerCase().indexOf(filter_by);
+                    var na = feature.properties.artist_name.toLowerCase().indexOf(filter_by);
+                    if (nn >= 0 || na >= 0) {
+                        //filter name OK
+                    } else {
+                        show_pt = false;
+                    }
+                }
+                //filter by has image, only needed when still true
+                if (show_pt && filter_by_img) {
+                    // console.log("IMG_CHECK");
+                    // console.log(filter_by_img);
+                    //console.log(feature.properties);
+                    if(typeof feature.properties.info.img_thumbnail === "undefined"){
+                        show_pt = false;
+                    }
+                }
+                //filter by is street cabinet
+                if (show_pt && filter_by_cab) {
+                    console.log(feature.properties);
+                    if(typeof feature.properties.info.man_made === "undefined"){
+                        show_pt = false;
+                    } else {
+                        if (feature.properties.info.man_made === "street_cabinet") {
+                            //OK
+                        } else  {
+                            show_pt = false;
+                        }
+                    }
+                }
+
+                if (show_pt)  {
+                    return new IconMural2(latlng, feature.properties);
+                }
             },
             onEachFeature: function (feature, layer) {
                 //console.log(feature);
@@ -326,7 +370,7 @@
                 //im = "https://placeimg.com/200/300/animals";
                 var popup_txt = '<b>Titel</b>: ' + feature.properties.title + '<br/>' ;
                 popup_txt +=  '<b>Artiest</b>: ' + feature.properties.artist_name + '<br/>';
-                popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo" onError="this.onerror=null;this.src=\'' + im + '\';" /><br/>';
+                popup_txt +=  '<img style="max-width: 400px;max-height: 400px;" src="' + feature.properties.image + '" alt="Photo" onError="this.onerror=null;this.src=\'' + im + '\';" /><br/>';
                 //popup_txt +=  '<img style="max-width: 380px;max-height: 400px;" src="' + im + '" alt="Photo" onError="this.onerror=null;this.remove();" /><br/>';
 
                 var p = feature.properties.info;

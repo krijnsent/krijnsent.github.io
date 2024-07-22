@@ -4,7 +4,7 @@
 
 <h1>What?</h1>
 <p>For a Civilization-like game I liked to play (freeware, playable, but not updated anymore <a href="https://visualbruno.itch.io/world-of-empires2">https://visualbruno.itch.io/world-of-empires2</a> ) I wanted to create better maps. As Civilization used to be a simple squares-based map, I found Excel an easy and visual tool to get this done. This article is about the map creator I made. The link to the tool is at the bottom. This is an example of what the tool generates:<br>
-    <div class="row"><img src="/excel/img/excel-fantasy-map-goal.png" alt="Excel Fantasy Map Goal"></div>
+    <div class="row"><img src="./excel/img/excel-fantasy-map-goal.png" alt="Excel Fantasy Map Goal"></div>
 </p>
 
 <h1>Technical</h1>
@@ -14,43 +14,43 @@
 <h2>Step 1</h2>
 <p>As a base for the map, I started off with one cell where the user has to put in a "seed value", a number greater than 0 which is the base for the whole map. Based on this seed and the dimensions of the map, the grid is filled with pseudo-random numbers. In Excel function:<br>
     <code>=MOD(48271*A1,2^31-1)</code>  -  this is the <a href="https://stackoverflow.com/a/33170115/4552016" rel="nofollow noopener">Lehmer random number generator</a><br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-random1.png" alt="Excel Fantasy Map Random 1"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-random1.png" alt="Excel Fantasy Map Random 1"></div></p>
 <h2>Step 2</h2>
 <p>Standardize these values to the range 0-1, so they can be used easier. I added some conditional formatting for easier visual checks.<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-random2.png" alt="Excel Fantasy Map Random 2"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-random2.png" alt="Excel Fantasy Map Random 2"></div></p>
 <h2>Step 3</h2>
 <p>The next step is to use these random numbers to create land and sea. For this we need one more extra input: the percentage of land that the user wants. The issue is that the map just based on the random numbers from Step 2 looks like this (top 40% of random values are land here):<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-start.png" alt="Excel Fantasy Map Start"></div><br>
+<div class="row"><img src="./excel/img/excel-fantasy-map-start.png" alt="Excel Fantasy Map Start"></div><br>
     In order to make a more credible map, land masses need to be clumped together, which is basically smoothening the random values. The trick for that is using <a href="https://flafla2.github.io/2014/08/09/perlinnoise.html" title="Perlin noise background">Perlin Noise</a></p>
 <h3>Perlin Noise example</h3>
-<p><div class="row"><img src="/excel/img/excel-fantasy-map-perlin-calc.png" alt="Excel Fantasy Map Perlin Calculation"></div><br>
+<p><div class="row"><img src="./excel/img/excel-fantasy-map-perlin-calc.png" alt="Excel Fantasy Map Perlin Calculation"></div><br>
     The calculation here starts off with the grid filled with pseudo random values. In order to smoothen it we will only take some values. In the example above the <em>octave</em> is 2. An octave is basically setting the smoothness: the higher the octave, the smoother the outcome. An octave of 2 means that only every 4th random value is used, the values in between are calculated based on these values. What that means is that e.g. the circled cells are the same value as the random values, the rest is calculated.<br>
     An example is the 0,51 (yellow box). The general formula is:<br>
     <code>value(i0,j0)*(1-vert_blend)*(1-horiz_blend)+value(i0,j1)*(vert_blend)*(1-horiz_blend)+value(i1,j0)*(1-vert_blend)*(horiz_blend)+value(i1,j1)*(vert_blend)*(horiz_blend)</code><br>
     This means for 0,51:<br>
     <code>0,00*(1-0,75)*(1-0,5)+0,43*(0,75)*(1-0,5)+0,71*(1-0,75)*(1-0,5)+0,70*(0,75)*(0,5)=0,51</code><br>
     Doing that for various <em>octaves</em> (1-4), this is the result from random to octave 4:<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-perlin01234.png" alt="Excel Fantasy Map Perlin Calculation 2"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-perlin01234.png" alt="Excel Fantasy Map Perlin Calculation 2"></div></p>
 
 <h2>Step 4</h2>
 <p>The 4th step is merging these 5 random maps. Again: I am basically creating a height map, so only the e.g. top 40% of random values becomes land, the rest sea. The main challenge here is the weighing factor per map. If I want a pangea map (one big landmass), I want to give the 4th octave a big weight, the lower ones less. What I came up with are 2 factors: the maximum octave used (0 is the random numbers I started with) and the octave multiplier: starting with a weight of 1 for octave 0, the next octave weight gets multiplied by this number. The results of these steps becomes apparent in step 5.</p>
 <h2>Step 5</h2>
 <p>Step 5 is setting the landmass percentage, as said above: only the e.g. top 40% of random values of step 4 become land, the rest sea. With 40%, this is the impact of the settings of step 4:<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-perlin-octaves.png" alt="Excel Fantasy Map Perlin Octaves"></div><br>
+<div class="row"><img src="./excel/img/excel-fantasy-map-perlin-octaves.png" alt="Excel Fantasy Map Perlin Octaves"></div><br>
     This starts looking like a map! And what I can do is create some pre-determined settings for e.g. "a fractal map", "a pangea map" and a "continents" map, just a random seed and 3 numbers will do :).</p>
 <h2>Step 6</h2>
 <p>Step 6 is a small smoothening: removing the single tile water or land. Basically: if all tiles around it are water, then the tile itself should be water.</p>
 <h2>Step 7</h2>
 <p>Mountains &amp; lakes... Say the top 1% of the height map (step 5) should be mountain. For lakes: every water tile that has at least 2 land tiles next to it becomes a lake. After step 6&amp;7, this is the land (light green), lake (blue), sea (white) &amp; mountain (dark green) map.<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-tweaks.png" alt="Excel Fantasy Map Tweaks"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-tweaks.png" alt="Excel Fantasy Map Tweaks"></div></p>
 <h2>Step 8</h2>
 <p>Climate... Here I have 2 inputs: rainfall (0: little, 9: lots) and temperature (0: cold, 9: hot). But how does this translate into different tile types? For that I created a small table for the different types of terrain, their min&amp;max temperature (scale: 0-100) and min&amp;max rainfall (0-100).<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-climates.png" alt="Excel Fantasy Map Climages"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-climates.png" alt="Excel Fantasy Map Climages"></div></p>
 <h3>Temperature</h3>
 <p>This one is rather easy: it runs from 0 at the poles to 100 at the equator. One small adjustment: when the temperature is set to "cold" (=0), it runs from 0 to 90 and when it's set to hot (=9) it runs from 9 to 99.</p>
 <h3>Rainfall</h3>
 <p>In my tool I'm basically using a Perlin noise map with an octave of 1,5. I'm using the resulting (random) numbers for 80% and add the setting for rainfall for 20%, so a "very wet" map will be in the range of 20-100 and a very dry map will be 0-80. This leads clusters of wet and dry, e.g.:<br>
-<div class="row"><img src="/excel/img/excel-fantasy-map-rain.png" alt="Excel Fantasy Map Rain"></div></p>
+<div class="row"><img src="./excel/img/excel-fantasy-map-rain.png" alt="Excel Fantasy Map Rain"></div></p>
 <h3>Terrain type</h3>
 <p>The next step is to find out if a terrain type can exist on a certain cell in the grid. That's not too complicated with the temperature and the rainfall already calculated. But it can happen that based on these 2 criteria multiple terrain types can occur on one cell, so I needed some pseudo random variable to determine the final terrain type. Again: I want the system to be deterministic and always lead to the same answer. So what I did is to take the random values of step 2 and for every terrain type, I took the next chunck of that random value, like so:<br>
     Random value from step 2: 0,78252378<br>
@@ -59,7 +59,7 @@
     Plains (from digit 4): 0,52378<br>
     Etcetera... In that way, I have the temperature &amp; rainfall to filter out which terrain types are possible and a pseudo random factor to act as a tie-breaker if more terrain types are possible.</p>
 <h2>The result</h2>
-<p><div class="row"><img src="/excel/img/excel-fantasy-map-result.png" alt="Excel Fantasy Map Result"</div><br>
+<p><div class="row"><img src="./excel/img/excel-fantasy-map-result.png" alt="Excel Fantasy Map Result"</div><br>
     If you have excel and want to play around with this tool, you can download it here:<br>
     <a href="https://www.dropbox.com/s/0ngjkp0kabugks6/WorldOfEmpires2_map_edit_steemit.xlsx?dl=0">https://www.dropbox.com/s/0ngjkp0kabugks6/WorldOfEmpires2_map_edit_steemit.xlsx?dl=0</a><br>
     Feedback is very welcome!</p>
